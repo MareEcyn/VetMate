@@ -15,7 +15,6 @@ struct InitialView: View {
                 .tabItem {
                     TabItem(tabName: "Шкалы", imageName: "list.triangle")
                 }
-//                .environment(\.realmConfiguration, ScalesModel.getRealmConfiguration())
             MeasurmentsView()
                 .tabItem {
                     TabItem(tabName: "Счетчики", imageName: "drop")

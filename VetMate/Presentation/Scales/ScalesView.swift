@@ -11,7 +11,6 @@ struct ScalesView: View {
         NavigationView {
             Group {
                 if scale == nil {
-//                    HintView("Выберите шкалу")
                     Button("Шкалы") {
                         showScalesList = true
                     }
@@ -19,8 +18,6 @@ struct ScalesView: View {
                         ScalesListView(scaleToShow: $scale,
                                        showScalesList: $showScalesList,
                                        selectedAnswers: $selectedAnswers)
-//                            .environment(\.realmConfiguration, ScalesModel.getRealmConfiguration())
-//                                       scales: scales.map { $0 })
                     })
                 } else {
                     List {
@@ -49,16 +46,6 @@ struct ScalesView: View {
                         .font(.body)
                         .padding(.leading)
                     Spacer()
-//                    Button("Шкалы") {
-//                        showScalesList = true
-//                    }
-//                    .popover(isPresented: $showScalesList, content: {
-////                        ScalesListView(scaleToShow: $scale,
-////                                       showScalesList: $showScalesList,
-////                                       selectedAnswers: $selectedAnswers,
-////                                       scales: scales.map { $0 })
-//                        ScalesListView()
-//                    })
                 }
             })
         }
