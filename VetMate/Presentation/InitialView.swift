@@ -23,17 +23,7 @@ struct InitialView: View {
         }
         .onAppear(perform: {
             ScalesModel.getRealmConfiguration()
-            configureTabBar()
         })
-    }
-}
-
-extension InitialView {
-    private func configureTabBar() {
-        UITabBar.appearance().barTintColor = UIColor(.content)
-        UITabBar.appearance().tintColor = UIColor(.interactiveBlue)
-        UITabBar.appearance().isTranslucent = false
-        UITabBar.appearance().clipsToBounds = true
     }
 }
 
