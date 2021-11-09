@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E8477C3F4298A2650BFB512 /* Pods_VetMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92240663117D89B5FCCED961 /* Pods_VetMate.framework */; };
+		E609B21C26DCAA1500DA398E /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E609B21B26DCAA1500DA398E /* Color+Ext.swift */; };
+		E609B21E26DCAF9500DA398E /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E609B21D26DCAF9500DA398E /* QuestionTextView.swift */; };
+		E609B22026DCBD4800DA398E /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E609B21F26DCBD4800DA398E /* View+Ext.swift */; };
+		E617888F26D3AA4D008A5987 /* VetMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E617888E26D3AA4D008A5987 /* VetMateApp.swift */; };
+		E617889126D3AA4D008A5987 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E617889026D3AA4D008A5987 /* InitialView.swift */; };
+		E617889326D3AA67008A5987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E617889226D3AA67008A5987 /* Assets.xcassets */; };
+		E617889626D3AA67008A5987 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E617889526D3AA67008A5987 /* Preview Assets.xcassets */; };
+		E67627D526DDE26300179D79 /* Scale+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67627D426DDE26300179D79 /* Scale+Realm.swift */; };
+		E676280026DE149700179D79 /* scales.realm in Resources */ = {isa = PBXBuildFile; fileRef = E67627FF26DE149700179D79 /* scales.realm */; };
+		E6878D2026DCEFD400566015 /* ScalesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6878D1F26DCEFD400566015 /* ScalesListView.swift */; };
+		E6878D2226DCF4F500566015 /* ScalesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6878D2126DCF4F500566015 /* ScalesModel.swift */; };
+		E69D1B7726D3C7360004A91E /* ScalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7626D3C7360004A91E /* ScalesView.swift */; };
+		E69D1B7926D3C7480004A91E /* MeasurmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */; };
+		E69D1B7B26D3C7590004A91E /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7A26D3C7590004A91E /* EmergencyView.swift */; };
+		E69D1B7D26D3C76C0004A91E /* CalculatorsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7C26D3C76C0004A91E /* CalculatorsListView.swift */; };
+		E69D1B8226D3E5540004A91E /* Calculators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B8126D3E5540004A91E /* Calculators.swift */; };
+		E69D1BA126D4EE7A0004A91E /* AppGroupBoxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA026D4EE7A0004A91E /* AppGroupBoxStyle.swift */; };
+		E69D1BA526D5070B0004A91E /* SegmentedFieldQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA426D5070B0004A91E /* SegmentedFieldQuestion.swift */; };
+		E69D1BA726D532700004A91E /* NumberFieldQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA626D532700004A91E /* NumberFieldQuestion.swift */; };
+		E6EA2B8126E0B52700795DDC /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EA2B8026E0B52700795DDC /* HintView.swift */; };
+		E6F7C98F26D6207E008E4915 /* EmergencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F7C98E26D6207E008E4915 /* EmergencyModel.swift */; };
+		E6F7C99126D64BB4008E4915 /* EmergencyDrugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F7C99026D64BB4008E4915 /* EmergencyDrugView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5474D6ADD7FDA6FBE6752E6F /* Pods-VetMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VetMate.debug.xcconfig"; path = "Target Support Files/Pods-VetMate/Pods-VetMate.debug.xcconfig"; sourceTree = "<group>"; };
+		579F1795BE3391945EBD5FD2 /* Pods-VetMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VetMate.release.xcconfig"; path = "Target Support Files/Pods-VetMate/Pods-VetMate.release.xcconfig"; sourceTree = "<group>"; };
+		92240663117D89B5FCCED961 /* Pods_VetMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VetMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E609B21B26DCAA1500DA398E /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		E609B21D26DCAF9500DA398E /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTextView.swift; sourceTree = "<group>"; };
+		E609B21F26DCBD4800DA398E /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		E617888B26D3AA4D008A5987 /* VetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E617888E26D3AA4D008A5987 /* VetMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMateApp.swift; sourceTree = "<group>"; };
+		E617889026D3AA4D008A5987 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
+		E617889226D3AA67008A5987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E617889526D3AA67008A5987 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E617889726D3AA67008A5987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E67627D426DDE26300179D79 /* Scale+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale+Realm.swift"; sourceTree = "<group>"; };
+		E67627FF26DE149700179D79 /* scales.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = scales.realm; sourceTree = "<group>"; };
+		E6878D1F26DCEFD400566015 /* ScalesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesListView.swift; sourceTree = "<group>"; };
+		E6878D2126DCF4F500566015 /* ScalesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesModel.swift; sourceTree = "<group>"; };
+		E69D1B7626D3C7360004A91E /* ScalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesView.swift; sourceTree = "<group>"; };
+		E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentsView.swift; sourceTree = "<group>"; };
+		E69D1B7A26D3C7590004A91E /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
+		E69D1B7C26D3C76C0004A91E /* CalculatorsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorsListView.swift; sourceTree = "<group>"; };
+		E69D1B8126D3E5540004A91E /* Calculators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculators.swift; sourceTree = "<group>"; };
+		E69D1BA026D4EE7A0004A91E /* AppGroupBoxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupBoxStyle.swift; sourceTree = "<group>"; };
+		E69D1BA426D5070B0004A91E /* SegmentedFieldQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedFieldQuestion.swift; sourceTree = "<group>"; };
+		E69D1BA626D532700004A91E /* NumberFieldQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFieldQuestion.swift; sourceTree = "<group>"; };
+		E6EA2B8026E0B52700795DDC /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
+		E6F7C98E26D6207E008E4915 /* EmergencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyModel.swift; sourceTree = "<group>"; };
+		E6F7C99026D64BB4008E4915 /* EmergencyDrugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyDrugView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E617888826D3AA4D008A5987 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E8477C3F4298A2650BFB512 /* Pods_VetMate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F688B85B86F14F05FA2DD2B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5474D6ADD7FDA6FBE6752E6F /* Pods-VetMate.debug.xcconfig */,
+				579F1795BE3391945EBD5FD2 /* Pods-VetMate.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		76EB990EA357265B4EEA2480 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92240663117D89B5FCCED961 /* Pods_VetMate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E609B22126DCEBA300DA398E /* Scales */ = {
+			isa = PBXGroup;
+			children = (
+				E6EA2B8226E0E5FC00795DDC /* Model */,
+				E69D1B7626D3C7360004A91E /* ScalesView.swift */,
+				E6878D1F26DCEFD400566015 /* ScalesListView.swift */,
+			);
+			path = Scales;
+			sourceTree = "<group>";
+		};
+		E617888226D3AA4C008A5987 = {
+			isa = PBXGroup;
+			children = (
+				E617888D26D3AA4D008A5987 /* VetMate */,
+				E617888C26D3AA4D008A5987 /* Products */,
+				4F688B85B86F14F05FA2DD2B /* Pods */,
+				76EB990EA357265B4EEA2480 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E617888C26D3AA4D008A5987 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E617888B26D3AA4D008A5987 /* VetMate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E617888D26D3AA4D008A5987 /* VetMate */ = {
+			isa = PBXGroup;
+			children = (
+				E67627FF26DE149700179D79 /* scales.realm */,
+				E617889F26D3B4C2008A5987 /* Presentation */,
+				E617889E26D3B4BC008A5987 /* Application */,
+				E617889D26D3B4B2008A5987 /* Resources */,
+				E617889426D3AA67008A5987 /* Preview Content */,
+			);
+			path = VetMate;
+			sourceTree = "<group>";
+		};
+		E617889426D3AA67008A5987 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E617889526D3AA67008A5987 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E617889D26D3B4B2008A5987 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E617889226D3AA67008A5987 /* Assets.xcassets */,
+				E617889726D3AA67008A5987 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E617889E26D3B4BC008A5987 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E617888E26D3AA4D008A5987 /* VetMateApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E617889F26D3B4C2008A5987 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E617889026D3AA4D008A5987 /* InitialView.swift */,
+				E6E3D0FC26E080F2001EAF43 /* Measurements */,
+				E6E3D0FB26E080E7001EAF43 /* Calculators */,
+				E6E3D0FA26E07F47001EAF43 /* Extensions */,
+				E69D1B9F26D4EE520004A91E /* Supplementary */,
+				E6F7C98D26D62050008E4915 /* Emergency */,
+				E609B22126DCEBA300DA398E /* Scales */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E69D1B9F26D4EE520004A91E /* Supplementary */ = {
+			isa = PBXGroup;
+			children = (
+				E69D1BA026D4EE7A0004A91E /* AppGroupBoxStyle.swift */,
+				E69D1BA426D5070B0004A91E /* SegmentedFieldQuestion.swift */,
+				E69D1BA626D532700004A91E /* NumberFieldQuestion.swift */,
+				E609B21D26DCAF9500DA398E /* QuestionTextView.swift */,
+				E6EA2B8026E0B52700795DDC /* HintView.swift */,
+			);
+			path = Supplementary;
+			sourceTree = "<group>";
+		};
+		E6E3D0FA26E07F47001EAF43 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E609B21F26DCBD4800DA398E /* View+Ext.swift */,
+				E609B21B26DCAA1500DA398E /* Color+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E6E3D0FB26E080E7001EAF43 /* Calculators */ = {
+			isa = PBXGroup;
+			children = (
+				E69D1B8126D3E5540004A91E /* Calculators.swift */,
+				E69D1B7C26D3C76C0004A91E /* CalculatorsListView.swift */,
+			);
+			path = Calculators;
+			sourceTree = "<group>";
+		};
+		E6E3D0FC26E080F2001EAF43 /* Measurements */ = {
+			isa = PBXGroup;
+			children = (
+				E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */,
+			);
+			path = Measurements;
+			sourceTree = "<group>";
+		};
+		E6EA2B8226E0E5FC00795DDC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E6878D2126DCF4F500566015 /* ScalesModel.swift */,
+				E67627D426DDE26300179D79 /* Scale+Realm.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E6EA2B8326E0E61200795DDC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E6F7C98E26D6207E008E4915 /* EmergencyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E6F7C98D26D62050008E4915 /* Emergency */ = {
+			isa = PBXGroup;
+			children = (
+				E6EA2B8326E0E61200795DDC /* Model */,
+				E69D1B7A26D3C7590004A91E /* EmergencyView.swift */,
+				E6F7C99026D64BB4008E4915 /* EmergencyDrugView.swift */,
+			);
+			path = Emergency;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E617888A26D3AA4D008A5987 /* VetMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E617889A26D3AA67008A5987 /* Build configuration list for PBXNativeTarget "VetMate" */;
+			buildPhases = (
+				69EE391E2E16DDDF6C3FB22D /* [CP] Check Pods Manifest.lock */,
+				E6E25D8A26D89BFC00CF3AD8 /* SwiftLint */,
+				E617888726D3AA4D008A5987 /* Sources */,
+				E617888826D3AA4D008A5987 /* Frameworks */,
+				E617888926D3AA4D008A5987 /* Resources */,
+				E1A2A0031FFE024AB971C339 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VetMate;
+			productName = VetMate;
+			productReference = E617888B26D3AA4D008A5987 /* VetMate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E617888326D3AA4C008A5987 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					E617888A26D3AA4D008A5987 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = E617888626D3AA4D008A5987 /* Build configuration list for PBXProject "VetMate" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E617888226D3AA4C008A5987;
+			productRefGroup = E617888C26D3AA4D008A5987 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E617888A26D3AA4D008A5987 /* VetMate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E617888926D3AA4D008A5987 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E676280026DE149700179D79 /* scales.realm in Resources */,
+				E617889626D3AA67008A5987 /* Preview Assets.xcassets in Resources */,
+				E617889326D3AA67008A5987 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69EE391E2E16DDDF6C3FB22D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VetMate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1A2A0031FFE024AB971C339 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VetMate/Pods-VetMate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VetMate/Pods-VetMate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VetMate/Pods-VetMate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6E25D8A26D89BFC00CF3AD8 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E617888726D3AA4D008A5987 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6EA2B8126E0B52700795DDC /* HintView.swift in Sources */,
+				E69D1B8226D3E5540004A91E /* Calculators.swift in Sources */,
+				E69D1BA726D532700004A91E /* NumberFieldQuestion.swift in Sources */,
+				E6878D2026DCEFD400566015 /* ScalesListView.swift in Sources */,
+				E609B22026DCBD4800DA398E /* View+Ext.swift in Sources */,
+				E6F7C99126D64BB4008E4915 /* EmergencyDrugView.swift in Sources */,
+				E6F7C98F26D6207E008E4915 /* EmergencyModel.swift in Sources */,
+				E609B21C26DCAA1500DA398E /* Color+Ext.swift in Sources */,
+				E69D1BA126D4EE7A0004A91E /* AppGroupBoxStyle.swift in Sources */,
+				E69D1B7726D3C7360004A91E /* ScalesView.swift in Sources */,
+				E69D1BA526D5070B0004A91E /* SegmentedFieldQuestion.swift in Sources */,
+				E617889126D3AA4D008A5987 /* InitialView.swift in Sources */,
+				E69D1B7D26D3C76C0004A91E /* CalculatorsListView.swift in Sources */,
+				E67627D526DDE26300179D79 /* Scale+Realm.swift in Sources */,
+				E617888F26D3AA4D008A5987 /* VetMateApp.swift in Sources */,
+				E69D1B7B26D3C7590004A91E /* EmergencyView.swift in Sources */,
+				E69D1B7926D3C7480004A91E /* MeasurmentsView.swift in Sources */,
+				E6878D2226DCF4F500566015 /* ScalesModel.swift in Sources */,
+				E609B21E26DCAF9500DA398E /* QuestionTextView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E617889826D3AA67008A5987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E617889926D3AA67008A5987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E617889B26D3AA67008A5987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5474D6ADD7FDA6FBE6752E6F /* Pods-VetMate.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"VetMate/Preview Content\"";
+				DEVELOPMENT_TEAM = 98NLZHSYYL;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = VetMate/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100 -Xfrontend -warn-long-expression-type-checking=100";
+				PRODUCT_BUNDLE_IDENTIFIER = ecynmare.VetMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E617889C26D3AA67008A5987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 579F1795BE3391945EBD5FD2 /* Pods-VetMate.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"VetMate/Preview Content\"";
+				DEVELOPMENT_TEAM = 98NLZHSYYL;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = VetMate/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100 -Xfrontend -warn-long-expression-type-checking=100";
+				PRODUCT_BUNDLE_IDENTIFIER = ecynmare.VetMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E617888626D3AA4D008A5987 /* Build configuration list for PBXProject "VetMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E617889826D3AA67008A5987 /* Debug */,
+				E617889926D3AA67008A5987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E617889A26D3AA67008A5987 /* Build configuration list for PBXNativeTarget "VetMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E617889B26D3AA67008A5987 /* Debug */,
+				E617889C26D3AA67008A5987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E617888326D3AA4C008A5987 /* Project object */;
+}
