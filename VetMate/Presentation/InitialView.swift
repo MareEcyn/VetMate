@@ -5,36 +5,37 @@ struct InitialView: View {
         TabView {
             EmergencyView(model: EmergencyModel())
                 .tabItem {
-                    TabItem(tabName: "Скорая помощь", imageName: "bolt.heart.fill")
+                    TabItem(name: "Скорая помощь", image: "bolt.heart.fill")
                 }
-            CalculatorsListView()
+            CalculatorsView()
                 .tabItem {
-                    TabItem(tabName: "Расчеты", imageName: "x.squareroot")
+                    TabItem(name: "Расчеты", image: "x.squareroot")
                 }
             ScalesView()
                 .tabItem {
-                    TabItem(tabName: "Шкалы", imageName: "list.triangle")
+                    TabItem(name: "Шкалы", image: "list.triangle")
                 }
             MeasurmentsView()
                 .tabItem {
-                    TabItem(tabName: "Счетчики", imageName: "drop")
+                    TabItem(name: "Счетчики", image: "drop")
                 }
         }
-        .onAppear(perform: {
-            ScalesModel.getRealmConfiguration()
-        })
     }
 }
+
+// MARK: - Embedded views
 
 struct TabItem: View {
-    let tabName: String
-    let imageName: String
+    let name: String
+    let image: String
 
     var body: some View {
-        Image(systemName: imageName)
-        Text(tabName)
+        Image(systemName: image)
+        Text(name)
     }
 }
+
+// MARK: - Preview
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

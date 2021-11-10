@@ -10,11 +10,13 @@
 		3E8477C3F4298A2650BFB512 /* Pods_VetMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92240663117D89B5FCCED961 /* Pods_VetMate.framework */; };
 		E609B21C26DCAA1500DA398E /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E609B21B26DCAA1500DA398E /* Color+Ext.swift */; };
 		E609B21E26DCAF9500DA398E /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E609B21D26DCAF9500DA398E /* QuestionTextView.swift */; };
-		E609B22026DCBD4800DA398E /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E609B21F26DCBD4800DA398E /* View+Ext.swift */; };
 		E617888F26D3AA4D008A5987 /* VetMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E617888E26D3AA4D008A5987 /* VetMateApp.swift */; };
 		E617889126D3AA4D008A5987 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E617889026D3AA4D008A5987 /* InitialView.swift */; };
 		E617889326D3AA67008A5987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E617889226D3AA67008A5987 /* Assets.xcassets */; };
 		E617889626D3AA67008A5987 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E617889526D3AA67008A5987 /* Preview Assets.xcassets */; };
+		E669DBD3273A59D600CF2132 /* CalculatorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669DBD2273A59D600CF2132 /* CalculatorsView.swift */; };
+		E669DBD6273B864B00CF2132 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669DBD5273B864B00CF2132 /* Grid.swift */; };
+		E669DBD8273B8F6E00CF2132 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669DBD7273B8F6E00CF2132 /* View+Ext.swift */; };
 		E67627D526DDE26300179D79 /* Scale+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67627D426DDE26300179D79 /* Scale+Realm.swift */; };
 		E676280026DE149700179D79 /* scales.realm in Resources */ = {isa = PBXBuildFile; fileRef = E67627FF26DE149700179D79 /* scales.realm */; };
 		E6878D2026DCEFD400566015 /* ScalesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6878D1F26DCEFD400566015 /* ScalesListView.swift */; };
@@ -22,14 +24,12 @@
 		E69D1B7726D3C7360004A91E /* ScalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7626D3C7360004A91E /* ScalesView.swift */; };
 		E69D1B7926D3C7480004A91E /* MeasurmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */; };
 		E69D1B7B26D3C7590004A91E /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7A26D3C7590004A91E /* EmergencyView.swift */; };
-		E69D1B7D26D3C76C0004A91E /* CalculatorsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7C26D3C76C0004A91E /* CalculatorsListView.swift */; };
 		E69D1B8226D3E5540004A91E /* Calculators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B8126D3E5540004A91E /* Calculators.swift */; };
 		E69D1BA126D4EE7A0004A91E /* AppGroupBoxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA026D4EE7A0004A91E /* AppGroupBoxStyle.swift */; };
-		E69D1BA526D5070B0004A91E /* SegmentedFieldQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA426D5070B0004A91E /* SegmentedFieldQuestion.swift */; };
-		E69D1BA726D532700004A91E /* NumberFieldQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA626D532700004A91E /* NumberFieldQuestion.swift */; };
+		E69D1BA526D5070B0004A91E /* SegmentedFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA426D5070B0004A91E /* SegmentedFieldView.swift */; };
+		E69D1BA726D532700004A91E /* NumberFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA626D532700004A91E /* NumberFieldView.swift */; };
 		E6EA2B8126E0B52700795DDC /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EA2B8026E0B52700795DDC /* HintView.swift */; };
 		E6F7C98F26D6207E008E4915 /* EmergencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F7C98E26D6207E008E4915 /* EmergencyModel.swift */; };
-		E6F7C99126D64BB4008E4915 /* EmergencyDrugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F7C99026D64BB4008E4915 /* EmergencyDrugView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,13 +38,15 @@
 		92240663117D89B5FCCED961 /* Pods_VetMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VetMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E609B21B26DCAA1500DA398E /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		E609B21D26DCAF9500DA398E /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTextView.swift; sourceTree = "<group>"; };
-		E609B21F26DCBD4800DA398E /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		E617888B26D3AA4D008A5987 /* VetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E617888E26D3AA4D008A5987 /* VetMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMateApp.swift; sourceTree = "<group>"; };
 		E617889026D3AA4D008A5987 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		E617889226D3AA67008A5987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E617889526D3AA67008A5987 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E617889726D3AA67008A5987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E669DBD2273A59D600CF2132 /* CalculatorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorsView.swift; sourceTree = "<group>"; };
+		E669DBD5273B864B00CF2132 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		E669DBD7273B8F6E00CF2132 /* View+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		E67627D426DDE26300179D79 /* Scale+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale+Realm.swift"; sourceTree = "<group>"; };
 		E67627FF26DE149700179D79 /* scales.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = scales.realm; sourceTree = "<group>"; };
 		E6878D1F26DCEFD400566015 /* ScalesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesListView.swift; sourceTree = "<group>"; };
@@ -52,14 +54,12 @@
 		E69D1B7626D3C7360004A91E /* ScalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesView.swift; sourceTree = "<group>"; };
 		E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentsView.swift; sourceTree = "<group>"; };
 		E69D1B7A26D3C7590004A91E /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
-		E69D1B7C26D3C76C0004A91E /* CalculatorsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorsListView.swift; sourceTree = "<group>"; };
 		E69D1B8126D3E5540004A91E /* Calculators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculators.swift; sourceTree = "<group>"; };
 		E69D1BA026D4EE7A0004A91E /* AppGroupBoxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupBoxStyle.swift; sourceTree = "<group>"; };
-		E69D1BA426D5070B0004A91E /* SegmentedFieldQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedFieldQuestion.swift; sourceTree = "<group>"; };
-		E69D1BA626D532700004A91E /* NumberFieldQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFieldQuestion.swift; sourceTree = "<group>"; };
+		E69D1BA426D5070B0004A91E /* SegmentedFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedFieldView.swift; sourceTree = "<group>"; };
+		E69D1BA626D532700004A91E /* NumberFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFieldView.swift; sourceTree = "<group>"; };
 		E6EA2B8026E0B52700795DDC /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		E6F7C98E26D6207E008E4915 /* EmergencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyModel.swift; sourceTree = "<group>"; };
-		E6F7C99026D64BB4008E4915 /* EmergencyDrugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyDrugView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +159,7 @@
 		E617889F26D3B4C2008A5987 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E669DBD4273B863000CF2132 /* Support */,
 				E617889026D3AA4D008A5987 /* InitialView.swift */,
 				E6E3D0FC26E080F2001EAF43 /* Measurements */,
 				E6E3D0FB26E080E7001EAF43 /* Calculators */,
@@ -170,12 +171,20 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		E669DBD4273B863000CF2132 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				E669DBD5273B864B00CF2132 /* Grid.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		E69D1B9F26D4EE520004A91E /* Supplementary */ = {
 			isa = PBXGroup;
 			children = (
 				E69D1BA026D4EE7A0004A91E /* AppGroupBoxStyle.swift */,
-				E69D1BA426D5070B0004A91E /* SegmentedFieldQuestion.swift */,
-				E69D1BA626D532700004A91E /* NumberFieldQuestion.swift */,
+				E69D1BA426D5070B0004A91E /* SegmentedFieldView.swift */,
+				E69D1BA626D532700004A91E /* NumberFieldView.swift */,
 				E609B21D26DCAF9500DA398E /* QuestionTextView.swift */,
 				E6EA2B8026E0B52700795DDC /* HintView.swift */,
 			);
@@ -185,7 +194,7 @@
 		E6E3D0FA26E07F47001EAF43 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E609B21F26DCBD4800DA398E /* View+Ext.swift */,
+				E669DBD7273B8F6E00CF2132 /* View+Ext.swift */,
 				E609B21B26DCAA1500DA398E /* Color+Ext.swift */,
 			);
 			path = Extensions;
@@ -195,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				E69D1B8126D3E5540004A91E /* Calculators.swift */,
-				E69D1B7C26D3C76C0004A91E /* CalculatorsListView.swift */,
+				E669DBD2273A59D600CF2132 /* CalculatorsView.swift */,
 			);
 			path = Calculators;
 			sourceTree = "<group>";
@@ -217,20 +226,11 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		E6EA2B8326E0E61200795DDC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E6F7C98E26D6207E008E4915 /* EmergencyModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		E6F7C98D26D62050008E4915 /* Emergency */ = {
 			isa = PBXGroup;
 			children = (
-				E6EA2B8326E0E61200795DDC /* Model */,
+				E6F7C98E26D6207E008E4915 /* EmergencyModel.swift */,
 				E69D1B7A26D3C7590004A91E /* EmergencyView.swift */,
-				E6F7C99026D64BB4008E4915 /* EmergencyDrugView.swift */,
 			);
 			path = Emergency;
 			sourceTree = "<group>";
@@ -368,19 +368,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E669DBD6273B864B00CF2132 /* Grid.swift in Sources */,
 				E6EA2B8126E0B52700795DDC /* HintView.swift in Sources */,
 				E69D1B8226D3E5540004A91E /* Calculators.swift in Sources */,
-				E69D1BA726D532700004A91E /* NumberFieldQuestion.swift in Sources */,
+				E69D1BA726D532700004A91E /* NumberFieldView.swift in Sources */,
 				E6878D2026DCEFD400566015 /* ScalesListView.swift in Sources */,
-				E609B22026DCBD4800DA398E /* View+Ext.swift in Sources */,
-				E6F7C99126D64BB4008E4915 /* EmergencyDrugView.swift in Sources */,
 				E6F7C98F26D6207E008E4915 /* EmergencyModel.swift in Sources */,
 				E609B21C26DCAA1500DA398E /* Color+Ext.swift in Sources */,
+				E669DBD3273A59D600CF2132 /* CalculatorsView.swift in Sources */,
 				E69D1BA126D4EE7A0004A91E /* AppGroupBoxStyle.swift in Sources */,
 				E69D1B7726D3C7360004A91E /* ScalesView.swift in Sources */,
-				E69D1BA526D5070B0004A91E /* SegmentedFieldQuestion.swift in Sources */,
+				E69D1BA526D5070B0004A91E /* SegmentedFieldView.swift in Sources */,
+				E669DBD8273B8F6E00CF2132 /* View+Ext.swift in Sources */,
 				E617889126D3AA4D008A5987 /* InitialView.swift in Sources */,
-				E69D1B7D26D3C76C0004A91E /* CalculatorsListView.swift in Sources */,
 				E67627D526DDE26300179D79 /* Scale+Realm.swift in Sources */,
 				E617888F26D3AA4D008A5987 /* VetMateApp.swift in Sources */,
 				E69D1B7B26D3C7590004A91E /* EmergencyView.swift in Sources */,
@@ -444,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -499,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -520,7 +520,7 @@
 				DEVELOPMENT_TEAM = 98NLZHSYYL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = VetMate/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -544,7 +544,7 @@
 				DEVELOPMENT_TEAM = 98NLZHSYYL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = VetMate/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,26 +7,6 @@ enum Species: Int {
     case canine
 }
 
-struct EmergencyDrug {
-    let name: String
-    let administrationRoute: String
-    let concentration: String
-    let unit: String
-    let formulaDescription: String
-    let formula: (Double, Species) -> (Double, Double?)
-
-    func calculateFor(weight: String, species: Species, accuracy: Int = 2) -> String {
-        guard let weight = Double(weight) else { return "--" }
-        let result = formula(weight, species)
-        switch result {
-        case (let from, nil):
-            return String(format: "%.\(accuracy)f", from)
-        case let (from, to):
-            return String(format: "%.\(accuracy)f", from) + " - " + String(format: "%.\(accuracy)f", to!)
-        }
-    }
-}
-
 struct EmergencyModel {
     let drugs = [
         EmergencyDrug(name: "Атропина сульфат",
@@ -228,4 +208,24 @@ struct EmergencyModel {
     ]
     
     subscript(index: Int) -> EmergencyDrug { drugs[index] }
+}
+
+struct EmergencyDrug {
+    let name: String
+    let administrationRoute: String
+    let concentration: String
+    let unit: String
+    let formulaDescription: String
+    let formula: (Double, Species) -> (Double, Double?)
+
+    func getDosageFor(weight: String, species: Species, accuracy: Int = 2) -> String {
+        guard let weight = Double(weight) else { return "--" }
+        let result = formula(weight, species)
+        switch result {
+        case (let from, nil):
+            return String(format: "%.\(accuracy)f", from)
+        case let (from, to):
+            return String(format: "%.\(accuracy)f", from) + " - " + String(format: "%.\(accuracy)f", to!)
+        }
+    }
 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SegmentedFieldQuestion: View {
+struct SegmentedFieldView: View {
     @Binding var selected: Int
     private let question: String
     private let options: [String]
@@ -33,6 +33,6 @@ struct SegmentedFieldQuestion: View {
 struct SegmentedPickerQuestion_Previews: PreviewProvider {
     @State static var species = 0
     static var previews: some View {
-        SegmentedFieldQuestion(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
+        SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
     }
 }

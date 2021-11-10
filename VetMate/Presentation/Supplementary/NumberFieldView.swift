@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-struct NumberFieldQuestion: View {
+struct NumberFieldView: View {
     @Binding var number: String
     private let question: String
     private let placeholder: String
@@ -47,6 +47,6 @@ struct NumberFieldQuestion: View {
 struct NumberFieldQuestion_Previews: PreviewProvider {
     @State static var binding = ""
     static var previews: some View {
-        NumberFieldQuestion(question: "Вес", hint: "кг", binding: $binding)
+        NumberFieldView(question: "Вес", hint: "кг", binding: $binding)
     }
 }
