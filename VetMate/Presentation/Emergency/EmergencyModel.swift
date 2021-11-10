@@ -13,7 +13,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ, ВМ",
                       concentration: "0.1",
                       unit: "мл",
-                      formulaDescription: "(0.02 * вес) / 1 . http://somereference.meow",
                       formula: { (w, _) in
                         let from = 0.02 * w
                         let to = 0.04 * w
@@ -23,7 +22,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ или ВМ",
                       concentration: "0.02",
                       unit: "мл",
-                      formulaDescription: "meow",
                       formula: { (w, _) in
                         let from = 0.011 * w / 0.2
                         return (from, nil)
@@ -32,7 +30,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ медленно",
                       concentration: "10",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 94 * w / 100
                         return (from, nil)
@@ -41,7 +38,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "",
                       unit: "мл/ч",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = ((30 * w) + 70) / 24
                         return (from, nil)
@@ -50,7 +46,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "",
                       unit: "мл/ч",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = (((30 * w) + 70) * 1.5) / 24
                         return (from, nil)
@@ -59,7 +54,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "",
                       unit: "мл/ч",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = (((30 * w) + 70) * 2) / 24
                         return (from, nil)
@@ -68,7 +62,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "",
                       unit: "мл/ч",
-                      formulaDescription: "",
                       formula: { (w, s) in
                         let from = (s == .feline ? 60 : 90) * w
                         return (from, nil)
@@ -77,7 +70,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ, макс. 20мл/кг/сут",
                       concentration: "",
                       unit: "мл/ч",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = w <= 10 ? 1 * w : 10
                         return (from, nil)
@@ -86,7 +78,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "0.4",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 0.5 * w / 4
                         return (from, nil)
@@ -95,7 +86,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "0.5",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 0.25 * w / 5
                         return (from, nil)
@@ -104,7 +94,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ ИПС",
                       concentration: "5.0",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 60 * w / 50
                         return (from, nil)
@@ -113,7 +102,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "2.0",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 5 * w / 20
                         return (from, nil)
@@ -122,7 +110,6 @@ struct EmergencyModel {
                       administrationRoute: "ИПС",
                       concentration: "0.5",
                       unit: "мкг/кг/ч",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 5 * 60 * w / 5
                         return (from, nil)
@@ -131,7 +118,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ к3-5мин",
                       concentration: "0.1",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 0.01 * w / 1
                         return (from, nil)
@@ -140,7 +126,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ, ИТ к3-5мин",
                       concentration: "0.1",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 0.1 * w / 1
                         return (from, nil)
@@ -149,7 +134,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 5 * w
                         return (from, nil)
@@ -158,7 +142,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ медленно болюсами",
                       concentration: "2.0",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, s) in
                         let from = (s == .feline ? 0.5 : 1) * w / 20
                         return (from, nil)
@@ -167,7 +150,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "5.0",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 5 * w / 50
                         return (from, nil)
@@ -176,7 +158,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "2.0",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 0.8 * w / 20
                         return (from, nil)
@@ -185,7 +166,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ в течении 10-20мин",
                       concentration: "15.0",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 0.5 * w / 0.15
                         return (from, nil)
@@ -194,7 +174,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ, ВМ",
                       concentration: "0.04",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in
                         let from = 0.01 * w / 0.4
                         return (from, nil)
@@ -203,7 +182,6 @@ struct EmergencyModel {
                       administrationRoute: "ВВ",
                       concentration: "8.4",
                       unit: "мл",
-                      formulaDescription: "",
                       formula: { (w, _) in (w, nil) }), // Weight of NaHCO3 = 84; prev formula - NaHCO3_weight*weight/84
     ]
     
@@ -215,7 +193,6 @@ struct EmergencyDrug {
     let administrationRoute: String
     let concentration: String
     let unit: String
-    let formulaDescription: String
     let formula: (Double, Species) -> (Double, Double?)
 
     func getDosageFor(weight: String, species: Species, accuracy: Int = 2) -> String {

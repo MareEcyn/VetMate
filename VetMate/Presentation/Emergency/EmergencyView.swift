@@ -34,7 +34,6 @@ struct EmergencyView: View {
 // MARK: - Embedded views
 
 private struct DrugView: View {
-    @State private var showDescription = false
     let drug: EmergencyDrug
     let weight: String
     let species: Species
@@ -61,16 +60,6 @@ private struct DrugView: View {
                         .font(.caption2)
                         .foregroundColor(.gray)
                 }
-                Button(action: {
-                    showDescription = true
-                }, label: {
-                    Image(systemName: "info.circle")
-                        .foregroundColor(.interactiveBlue)
-                })
-                .popover(isPresented: $showDescription, content: {
-                    Text(drug.formulaDescription)
-                        .font(.caption2)
-                })
                 .padding(EdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 0))
             }
         }
