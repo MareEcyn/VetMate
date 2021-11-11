@@ -20,6 +20,14 @@ struct InitialView: View {
                     TabItem(name: "Счетчики", image: "drop")
                 }
         }
+        .onAppear {
+            UITabBar.appearance().backgroundImage = UIImage()
+            UITabBar.appearance().backgroundColor = .white
+            UIToolbar.appearance().setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
+            UIToolbar.appearance().backgroundColor = .white
+            UINavigationBar.appearance().backgroundColor = .white
+            UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        }
     }
 }
 

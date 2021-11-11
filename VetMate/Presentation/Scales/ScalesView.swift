@@ -6,25 +6,20 @@ struct ScalesView: View {
     @State var scale: Scale?
     @State var selectedAnswers = [Int: [Int]]()
     @ObservedResults(Scale.self) var scales
+    typealias Result = (value: String, description: String)
     
     var body: some View {
         NavigationView {
             Group {
                 if scale == nil {
-                    Button("Шкалы") {
-                        showScalesList = true
-                    }
-                    .popover(isPresented: $showScalesList, content: {
-                        ScalesListView(scaleToShow: $scale,
-                                       showScalesList: $showScalesList,
-                                       selectedAnswers: $selectedAnswers)
-                    })
+                    HintView("Выберите шкалу")
                 } else {
                     List {
                         ForEach(0..<scale!.sections.count) { sIndex in
                             Section(header: ScaleSectionHeader(scale!.sections[sIndex].title)) {
                                 ForEach(0..<scale!.sections[sIndex].questions.count) { qIndex in
                                     Text(scale!.sections[sIndex].questions[qIndex].text)
+                                        .font(.callout)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .contentShape(Rectangle())
                                         .listRowBackground(getRowColor(forRow: qIndex, inSection: sIndex).0)
@@ -39,13 +34,35 @@ struct ScalesView: View {
                     .listStyle(InsetGroupedListStyle())
                 }
             }
-            .navigationTitle(scale == nil ? "Шкалы" : scale!.name)
+            .navigationBarTitle(scale == nil ? "Шкалы" : scale!.name, displayMode: .inline)
+            .navigationBarItems(trailing:
+                Button(action: { showScalesList = true },
+                       label: {
+                            Image(systemName: "list.bullet.rectangle.fill")
+                                .foregroundColor(.interactiveBlue)
+                })
+                .popover(isPresented: $showScalesList,
+                         content: {
+                            ScalesListView(scaleToShow: $scale,
+                                           showScalesList: $showScalesList,
+                                           selectedAnswers: $selectedAnswers)
+                })
+            )
             .toolbar(content: {
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Text(getScore())
-                        .font(.body)
-                        .padding(.leading)
-                    Spacer()
+                    if scale != nil {
+                    HStack(alignment: .top) {
+                        Text("Очки")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .foregroundColor(.gray)
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            Text(getResult()?.value ?? "Нет")
+                            Text(getResult()?.description ?? "Данных")
+                        }
+                    }
+                    }
                 }
             })
         }
@@ -72,8 +89,8 @@ extension ScalesView {
         return (.white, .black)
     }
     
-    func getScore() -> String {
-        guard let scale = scale, !selectedAnswers.isEmpty else { return "" }
+    func getResult() -> Result? {
+        guard let scale = scale, !selectedAnswers.isEmpty else { return nil }
         var score = 0
         var description = ""
         for section in selectedAnswers {
@@ -107,14 +124,17 @@ extension ScalesView {
         default:
             description = "n/a"
         }
-        return String(score) + " \(description)"
+        return (value: String(score), description: description)
     }
 }
+
+// MARK: - Embedded views
 
 struct ScaleSectionHeader: View {
     let text: String
     var body: some View {
         Text(text)
+            .font(.caption2)
             .fontWeight(.bold)
     }
     
@@ -122,6 +142,8 @@ struct ScaleSectionHeader: View {
         self.text = text
     }
 }
+
+// MARK: - Preview
 
 struct ScalesView_Previews: PreviewProvider {
     static var previews: some View {
