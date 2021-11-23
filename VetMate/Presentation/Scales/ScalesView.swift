@@ -20,7 +20,6 @@ struct ScalesView: View {
                         ForEach(Array(scale!.questions), id: \.text) { question in
                             Section(header: ScaleSectionHeader(question.text)) {
                                 ForEach(Array(question.answers), id: \.text) { answer in
-                                    let t = print(String(answer.text))
                                     Text(answer.text)
                                         .font(.callout)
                                         .frame(maxWidth: .infinity, alignment: .leading)
