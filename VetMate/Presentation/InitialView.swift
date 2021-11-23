@@ -25,8 +25,14 @@ struct InitialView: View {
             UITabBar.appearance().backgroundColor = .white
             UIToolbar.appearance().setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
             UIToolbar.appearance().backgroundColor = .white
-            UINavigationBar.appearance().backgroundColor = .white
-            UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+            // Apple remake nav-bar appearance in iOS 15 and we need return it's back due to visual issues
+            if #available(iOS 15.0, *) {
+                let navigationBarAppearance = UINavigationBarAppearance()
+                navigationBarAppearance.configureWithDefaultBackground()
+                UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+                UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+                UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+            }
         }
     }
 }
