@@ -4,7 +4,7 @@ import RealmSwift
 struct ScalesListView: View {
     @Binding var scaleToShow: Scale?
     @Binding var showScalesList: Bool
-    @Binding var selectedAnswers: [Int: [Int]]
+    @Binding var selectedAnswers: [Int: Int]
     @ObservedResults(Scale.self) var scales
     
     var body: some View {
@@ -28,7 +28,7 @@ struct ScalesListView: View {
                 .onTapGesture {
                     showScale(atIndex: scaleIndex)
                     dissmissView()
-                    selectedAnswers = [Int: [Int]]()
+                    selectedAnswers = [Int: Int]()
                 }
             }
         }.listStyle(PlainListStyle())

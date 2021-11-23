@@ -1,10 +1,12 @@
+//swiftlint:disable cyclomatic_complexity
+
 import SwiftUI
 import RealmSwift
 
 struct ScalesView: View {
     @State var showScalesList = false
     @State var scale: Scale?
-    @State var selectedAnswers = [Int: [Int]]()
+    @State var selectedAnswers = [Int: Int]() // [question table index: answer table index]
     @ObservedResults(Scale.self) var scales
     typealias Result = (value: String, description: String)
     
@@ -27,7 +29,7 @@ struct ScalesView: View {
                                         .listRowBackground(getRowColor(forRow: answer.index, inSection: question.index).0)
                                         .foregroundColor(getRowColor(forRow: answer.index, inSection: question.index).1)
                                         .onTapGesture {
-                                            updateAnswers(forQuestion: answer.index, inSection: question.index)
+                                            updateAnswers(withAnswer: answer.index, forQuestion: question.index)
                                         }
                                 }
                             }
@@ -72,33 +74,33 @@ struct ScalesView: View {
 }
 
 extension ScalesView {
-    func updateAnswers(forQuestion question: Int, inSection section: Int) {
-        if selectedAnswers[section] == nil {
-            selectedAnswers[section] = [question]
+    func updateAnswers(withAnswer answer: Int, forQuestion question: Int) {
+        if selectedAnswers[question] == nil {
+            selectedAnswers[question] = answer
         } else {
-            if let qIndex = selectedAnswers[section]?.firstIndex(of: question) {
-                selectedAnswers[section]?.remove(at: qIndex)
+            if selectedAnswers[question] == answer {
+                selectedAnswers.removeValue(forKey: question)
             } else {
-                selectedAnswers[section]? = [question]
+                selectedAnswers[question] = answer
             }
         }
     }
     
     func getRowColor(forRow row: Int, inSection section: Int) -> (Color, Color) {
-        if selectedAnswers[section]?.firstIndex(of: row) != nil {
+        if selectedAnswers[section] == row {
             return (.interactiveBlue, .white)
         }
         return (.white, .black)
     }
     
     func getResult() -> Result? {
-        guard let scale = scale, !selectedAnswers.isEmpty else { return nil }
+        guard let scale = scale, !selectedAnswers.isEmpty else {
+            return (value: "Нет", description: "Данных")
+        }
         var score = 0
         var description = ""
-        for section in selectedAnswers {
-            for answer in section.value {
-                score += scale.questions[section.key].answers[answer].score
-            }
+        for question in selectedAnswers {
+            score += scale.questions[question.key].answers[question.value].score
         }
         switch scale.name {
         case "Шкала Апгар #1":
@@ -120,6 +122,43 @@ extension ScalesView {
                 description = "некоторые нарушения"
             case 0...4:
                 description = "серьезные нарушения"
+            default:
+                description = "n/a"
+            }
+        case "Шкала комы":
+            switch score {
+            case 15...18:
+                description = "низкая вероятность"
+            case 9...14:
+                description = "умеренная вероятность"
+            case 1...8:
+                description = "высокая вероятность"
+            default:
+                description = "n/a"
+            }
+        case "Шкала боли (собаки)":
+            switch score {
+            case 10...12:
+                description = "сильная боль"
+            case 6...9:
+                description = "боль средней силы"
+            case 2...5:
+                description = "умеренная боль"
+            case 0...1:
+                description = "боли нет, или она минимальна"
+            default:
+                description = "n/a"
+            }
+        case "Шкала боли (кошки)":
+            switch score {
+            case 10...12:
+                description = "сильная боль"
+            case 6...9:
+                description = "боль средней силы"
+            case 2...5:
+                description = "умеренная боль"
+            case 0...1:
+                description = "боли нет, или она минимальна"
             default:
                 description = "n/a"
             }
