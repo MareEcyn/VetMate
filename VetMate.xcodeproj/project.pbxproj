@@ -19,9 +19,9 @@
 		E669DBD8273B8F6E00CF2132 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669DBD7273B8F6E00CF2132 /* View+Ext.swift */; };
 		E669DBDA273B951B00CF2132 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E669DBD9273B951B00CF2132 /* Launch Screen.storyboard */; };
 		E67627D526DDE26300179D79 /* Scale+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67627D426DDE26300179D79 /* Scale+Realm.swift */; };
-		E676280026DE149700179D79 /* scales.realm in Resources */ = {isa = PBXBuildFile; fileRef = E67627FF26DE149700179D79 /* scales.realm */; };
 		E6878D2026DCEFD400566015 /* ScalesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6878D1F26DCEFD400566015 /* ScalesListView.swift */; };
 		E6878D2226DCF4F500566015 /* ScalesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6878D2126DCF4F500566015 /* ScalesModel.swift */; };
+		E6895DD9274BCC13000D048C /* vetmate.realm in Resources */ = {isa = PBXBuildFile; fileRef = E6895DD8274BCC13000D048C /* vetmate.realm */; };
 		E69D1B7726D3C7360004A91E /* ScalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7626D3C7360004A91E /* ScalesView.swift */; };
 		E69D1B7926D3C7480004A91E /* MeasurmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */; };
 		E69D1B7B26D3C7590004A91E /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7A26D3C7590004A91E /* EmergencyView.swift */; };
@@ -50,9 +50,9 @@
 		E669DBD7273B8F6E00CF2132 /* View+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		E669DBD9273B951B00CF2132 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E67627D426DDE26300179D79 /* Scale+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale+Realm.swift"; sourceTree = "<group>"; };
-		E67627FF26DE149700179D79 /* scales.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = scales.realm; sourceTree = "<group>"; };
 		E6878D1F26DCEFD400566015 /* ScalesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesListView.swift; sourceTree = "<group>"; };
 		E6878D2126DCF4F500566015 /* ScalesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesModel.swift; sourceTree = "<group>"; };
+		E6895DD8274BCC13000D048C /* vetmate.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = vetmate.realm; sourceTree = "<group>"; };
 		E69D1B7626D3C7360004A91E /* ScalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesView.swift; sourceTree = "<group>"; };
 		E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentsView.swift; sourceTree = "<group>"; };
 		E69D1B7A26D3C7590004A91E /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		E617888D26D3AA4D008A5987 /* VetMate */ = {
 			isa = PBXGroup;
 			children = (
-				E67627FF26DE149700179D79 /* scales.realm */,
+				E6895DD8274BCC13000D048C /* vetmate.realm */,
 				E617889F26D3B4C2008A5987 /* Presentation */,
 				E617889E26D3B4BC008A5987 /* Application */,
 				E617889D26D3B4B2008A5987 /* Resources */,
@@ -298,9 +298,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E676280026DE149700179D79 /* scales.realm in Resources */,
 				E617889626D3AA67008A5987 /* Preview Assets.xcassets in Resources */,
 				E669DBDA273B951B00CF2132 /* Launch Screen.storyboard in Resources */,
+				E6895DD9274BCC13000D048C /* vetmate.realm in Resources */,
 				E617889326D3AA67008A5987 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

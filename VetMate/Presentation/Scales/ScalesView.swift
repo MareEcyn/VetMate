@@ -15,17 +15,20 @@ struct ScalesView: View {
                     HintView("Выберите шкалу")
                 } else {
                     List {
-                        ForEach(0..<scale!.sections.count) { sIndex in
-                            Section(header: ScaleSectionHeader(scale!.sections[sIndex].title)) {
-                                ForEach(0..<scale!.sections[sIndex].questions.count) { qIndex in
-                                    Text(scale!.sections[sIndex].questions[qIndex].text)
+                        /*** https://forums.swift.org/t/compile-error-generic-struct-foreach-requires-that-s-allcases-conform-to-randomaccesscollection-but-allcases-is-fine-when-using-it-directly/38417
+                         */
+                        ForEach(Array(scale!.questions), id: \.text) { question in
+                            Section(header: ScaleSectionHeader(question.text)) {
+                                ForEach(Array(question.answers), id: \.text) { answer in
+                                    let t = print(String(answer.text))
+                                    Text(answer.text)
                                         .font(.callout)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .contentShape(Rectangle())
-                                        .listRowBackground(getRowColor(forRow: qIndex, inSection: sIndex).0)
-                                        .foregroundColor(getRowColor(forRow: qIndex, inSection: sIndex).1)
+                                        .listRowBackground(getRowColor(forRow: answer.index, inSection: question.index).0)
+                                        .foregroundColor(getRowColor(forRow: answer.index, inSection: question.index).1)
                                         .onTapGesture {
-                                            updateAnswers(forQuestion: qIndex, inSection: sIndex)
+                                            updateAnswers(forQuestion: answer.index, inSection: question.index)
                                         }
                                 }
                             }
@@ -95,7 +98,7 @@ extension ScalesView {
         var description = ""
         for section in selectedAnswers {
             for answer in section.value {
-                score += scale.sections[section.key].questions[answer].score
+                score += scale.questions[section.key].answers[answer].score
             }
         }
         switch scale.name {

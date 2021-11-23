@@ -6,7 +6,7 @@ struct ScalesModel {
         let fileManager = FileManager.default
         let defaultPath = Realm.Configuration.defaultConfiguration.fileURL?.path
         if !fileManager.fileExists(atPath: defaultPath!) {
-            let bundleRealmURL = Bundle.main.path(forResource: "scales", ofType: "realm")!
+            let bundleRealmURL = Bundle.main.path(forResource: "vetmate", ofType: "realm")!
             try! fileManager.copyItem(atPath: bundleRealmURL, toPath: defaultPath!)
         } else {}
     }
