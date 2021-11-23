@@ -2,10 +2,10 @@ import SwiftUI
 import RealmSwift
 
 struct ScalesListView: View {
-    @Binding var scaleToShow: Scale?
-    @Binding var showScalesList: Bool
+    let scalesList: Results<Scale>
+    @Binding var activeScale: Scale?
     @Binding var selectedAnswers: [Int: Int]
-    @ObservedResults(Scale.self) var scales
+    @Binding var isScaleListDisplayed: Bool
     
     var body: some View {
         HStack {
@@ -15,30 +15,45 @@ struct ScalesListView: View {
                 .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 16))
         }
         List {
-            ForEach(0..<scales.count) { scaleIndex in
-                VStack(alignment: .leading) {
-                    Text(scales[scaleIndex].name)
-                    Text(scales[scaleIndex].author)
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                }
-                .padding(8)
-                .frame(maxWidth: .infinity, alignment: .leading) // to make whole List row tappable
-                .contentShape(Rectangle())
+            ForEach(scalesList, id: \.name) { scale in
+                ScalesListRow(name: scale.name, author: scale.author)
                 .onTapGesture {
-                    showScale(atIndex: scaleIndex)
                     dissmissView()
-                    selectedAnswers = [Int: Int]()
+                    wipeAnswers()
+                    showScale(scale)
                 }
             }
         }.listStyle(PlainListStyle())
     }
     
-    private func dissmissView() {
-        showScalesList = false
+    private func wipeAnswers() {
+        selectedAnswers = [Int: Int]()
     }
     
-    private func showScale(atIndex index: Int) {
-        scaleToShow = scales[index]
+    private func dissmissView() {
+        isScaleListDisplayed = false
+    }
+    
+    private func showScale(_ scale: Scale) {
+        activeScale = scale
+    }
+}
+
+// MARK: - Embedded views
+
+struct ScalesListRow: View {
+    let name: String
+    let author: String
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(name)
+            Text(author)
+                .font(.caption)
+                .foregroundColor(.gray)
+        }
+        .padding(8)
+        .frame(maxWidth: .infinity, alignment: .leading) // to make whole List row tappable
+        .contentShape(Rectangle())
     }
 }

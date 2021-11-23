@@ -20,7 +20,7 @@
 		E669DBDA273B951B00CF2132 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E669DBD9273B951B00CF2132 /* Launch Screen.storyboard */; };
 		E67627D526DDE26300179D79 /* Scale+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67627D426DDE26300179D79 /* Scale+Realm.swift */; };
 		E6878D2026DCEFD400566015 /* ScalesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6878D1F26DCEFD400566015 /* ScalesListView.swift */; };
-		E6878D2226DCF4F500566015 /* ScalesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6878D2126DCF4F500566015 /* ScalesModel.swift */; };
+		E6878D2226DCF4F500566015 /* ScalesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6878D2126DCF4F500566015 /* ScalesViewModel.swift */; };
 		E6895DD9274BCC13000D048C /* vetmate.realm in Resources */ = {isa = PBXBuildFile; fileRef = E6895DD8274BCC13000D048C /* vetmate.realm */; };
 		E69D1B7726D3C7360004A91E /* ScalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7626D3C7360004A91E /* ScalesView.swift */; };
 		E69D1B7926D3C7480004A91E /* MeasurmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */; };
@@ -51,7 +51,7 @@
 		E669DBD9273B951B00CF2132 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E67627D426DDE26300179D79 /* Scale+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale+Realm.swift"; sourceTree = "<group>"; };
 		E6878D1F26DCEFD400566015 /* ScalesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesListView.swift; sourceTree = "<group>"; };
-		E6878D2126DCF4F500566015 /* ScalesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesModel.swift; sourceTree = "<group>"; };
+		E6878D2126DCF4F500566015 /* ScalesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesViewModel.swift; sourceTree = "<group>"; };
 		E6895DD8274BCC13000D048C /* vetmate.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = vetmate.realm; sourceTree = "<group>"; };
 		E69D1B7626D3C7360004A91E /* ScalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesView.swift; sourceTree = "<group>"; };
 		E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentsView.swift; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		E6EA2B8226E0E5FC00795DDC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E6878D2126DCF4F500566015 /* ScalesModel.swift */,
+				E6878D2126DCF4F500566015 /* ScalesViewModel.swift */,
 				E67627D426DDE26300179D79 /* Scale+Realm.swift */,
 			);
 			path = Model;
@@ -389,7 +389,7 @@
 				E617888F26D3AA4D008A5987 /* VetMateApp.swift in Sources */,
 				E69D1B7B26D3C7590004A91E /* EmergencyView.swift in Sources */,
 				E69D1B7926D3C7480004A91E /* MeasurmentsView.swift in Sources */,
-				E6878D2226DCF4F500566015 /* ScalesModel.swift in Sources */,
+				E6878D2226DCF4F500566015 /* ScalesViewModel.swift in Sources */,
 				E609B21E26DCAF9500DA398E /* QuestionTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ struct InitialView: View {
                 .tabItem {
                     TabItem(name: "Расчеты", image: "x.squareroot")
                 }
-            ScalesView()
+            ScalesView(viewModel: ScalesViewModel())
                 .tabItem {
                     TabItem(name: "Шкалы", image: "list.triangle")
                 }
