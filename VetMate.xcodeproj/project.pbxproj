@@ -23,12 +23,13 @@
 		E6878D2226DCF4F500566015 /* ScalesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6878D2126DCF4F500566015 /* ScalesViewModel.swift */; };
 		E6895DD9274BCC13000D048C /* vetmate.realm in Resources */ = {isa = PBXBuildFile; fileRef = E6895DD8274BCC13000D048C /* vetmate.realm */; };
 		E69D1B7726D3C7360004A91E /* ScalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7626D3C7360004A91E /* ScalesView.swift */; };
-		E69D1B7926D3C7480004A91E /* MeasurmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */; };
+		E69D1B7926D3C7480004A91E /* MeasurementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7826D3C7480004A91E /* MeasurementsView.swift */; };
 		E69D1B7B26D3C7590004A91E /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B7A26D3C7590004A91E /* EmergencyView.swift */; };
 		E69D1B8226D3E5540004A91E /* Calculators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1B8126D3E5540004A91E /* Calculators.swift */; };
 		E69D1BA126D4EE7A0004A91E /* AppGroupBoxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA026D4EE7A0004A91E /* AppGroupBoxStyle.swift */; };
 		E69D1BA526D5070B0004A91E /* SegmentedFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA426D5070B0004A91E /* SegmentedFieldView.swift */; };
 		E69D1BA726D532700004A91E /* NumberFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA626D532700004A91E /* NumberFieldView.swift */; };
+		E6A609F5274E30DD00FA78A7 /* MeasurementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A609F4274E30DD00FA78A7 /* MeasurementsModel.swift */; };
 		E6EA2B8126E0B52700795DDC /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EA2B8026E0B52700795DDC /* HintView.swift */; };
 		E6F7C98F26D6207E008E4915 /* EmergencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F7C98E26D6207E008E4915 /* EmergencyModel.swift */; };
 /* End PBXBuildFile section */
@@ -54,12 +55,13 @@
 		E6878D2126DCF4F500566015 /* ScalesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesViewModel.swift; sourceTree = "<group>"; };
 		E6895DD8274BCC13000D048C /* vetmate.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = vetmate.realm; sourceTree = "<group>"; };
 		E69D1B7626D3C7360004A91E /* ScalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesView.swift; sourceTree = "<group>"; };
-		E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentsView.swift; sourceTree = "<group>"; };
+		E69D1B7826D3C7480004A91E /* MeasurementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsView.swift; sourceTree = "<group>"; };
 		E69D1B7A26D3C7590004A91E /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
 		E69D1B8126D3E5540004A91E /* Calculators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculators.swift; sourceTree = "<group>"; };
 		E69D1BA026D4EE7A0004A91E /* AppGroupBoxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupBoxStyle.swift; sourceTree = "<group>"; };
 		E69D1BA426D5070B0004A91E /* SegmentedFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedFieldView.swift; sourceTree = "<group>"; };
 		E69D1BA626D532700004A91E /* NumberFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFieldView.swift; sourceTree = "<group>"; };
+		E6A609F4274E30DD00FA78A7 /* MeasurementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsModel.swift; sourceTree = "<group>"; };
 		E6EA2B8026E0B52700795DDC /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		E6F7C98E26D6207E008E4915 /* EmergencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,7 +217,8 @@
 		E6E3D0FC26E080F2001EAF43 /* Measurements */ = {
 			isa = PBXGroup;
 			children = (
-				E69D1B7826D3C7480004A91E /* MeasurmentsView.swift */,
+				E69D1B7826D3C7480004A91E /* MeasurementsView.swift */,
+				E6A609F4274E30DD00FA78A7 /* MeasurementsModel.swift */,
 			);
 			path = Measurements;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			files = (
 				E669DBD6273B864B00CF2132 /* Grid.swift in Sources */,
 				E6EA2B8126E0B52700795DDC /* HintView.swift in Sources */,
+				E6A609F5274E30DD00FA78A7 /* MeasurementsModel.swift in Sources */,
 				E69D1B8226D3E5540004A91E /* Calculators.swift in Sources */,
 				E69D1BA726D532700004A91E /* NumberFieldView.swift in Sources */,
 				E6878D2026DCEFD400566015 /* ScalesListView.swift in Sources */,
@@ -388,7 +392,7 @@
 				E67627D526DDE26300179D79 /* Scale+Realm.swift in Sources */,
 				E617888F26D3AA4D008A5987 /* VetMateApp.swift in Sources */,
 				E69D1B7B26D3C7590004A91E /* EmergencyView.swift in Sources */,
-				E69D1B7926D3C7480004A91E /* MeasurmentsView.swift in Sources */,
+				E69D1B7926D3C7480004A91E /* MeasurementsView.swift in Sources */,
 				E6878D2226DCF4F500566015 /* ScalesViewModel.swift in Sources */,
 				E609B21E26DCAF9500DA398E /* QuestionTextView.swift in Sources */,
 			);

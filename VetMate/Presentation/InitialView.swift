@@ -15,9 +15,9 @@ struct InitialView: View {
                 .tabItem {
                     TabItem(name: "Шкалы", image: "list.triangle")
                 }
-            MeasurmentsView()
+            MeasurementsView(model: MeasurementsModel())
                 .tabItem {
-                    TabItem(name: "Счетчики", image: "drop")
+                    TabItem(name: "Счетчик капель", image: "drop")
                 }
         }
         .onAppear {
@@ -32,6 +32,7 @@ struct InitialView: View {
                 UINavigationBar.appearance().standardAppearance = navigationBarAppearance
                 UINavigationBar.appearance().compactAppearance = navigationBarAppearance
                 UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+                UINavigationBar.appearance().isTranslucent = false
             }
         }
     }
