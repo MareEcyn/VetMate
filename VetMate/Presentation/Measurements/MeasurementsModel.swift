@@ -16,7 +16,7 @@ class MeasurementsModel: ObservableObject {
             lastDropTime = currentTime
             let rate = Int(3_600 / timeDelta)
             dropsRates?.append(rate)
-            var ratesSum = dropsRates!.reduce(0, +)
+            let ratesSum = dropsRates!.reduce(0, +)
             resultVolume = (ratesSum / dropsRates!.count) / volume
         } else {
             dropsRates = []

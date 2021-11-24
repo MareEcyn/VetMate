@@ -13,7 +13,7 @@ struct SegmentedFieldView: View {
                     Text(options[index]).tag(index)
                 }
             })
-            .pickerStyle(SegmentedPickerStyle())
+                .pickerStyle(.segmented)
         }
     }
     
