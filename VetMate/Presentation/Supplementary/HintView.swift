@@ -8,6 +8,7 @@ struct HintView: View {
             .font(.body)
             .fontWeight(.light)
             .foregroundColor(.gray)
+            .multilineTextAlignment(.center)
     }
     
     init(_ text: String) {
