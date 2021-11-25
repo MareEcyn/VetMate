@@ -10,7 +10,7 @@ struct EmergencyView: View {
         NavigationView {
             VStack {
                 GroupBox {
-                    NumberFieldView(question: "Вес", hint: "кг", binding: $weight)
+                    NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
                         .focused($weightIsFocused)
                     SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
                 }

@@ -7,7 +7,7 @@ struct InitialView: View {
                 .tabItem {
                     TabItem(name: "Скорая помощь", image: "bolt.heart.fill")
                 }
-            CalculatorsView()
+            CalculatorsListView()
                 .tabItem {
                     TabItem(name: "Расчеты", image: "x.squareroot")
                 }

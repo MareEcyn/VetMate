@@ -1,26 +1,114 @@
 import SwiftUI
 
-struct EpiduralAnesthesiaView: View {
+protocol CalculatorModel {
+    var name: String { get }
+    func getResult() -> String?
+}
+
+// MARK: - Container view
+
+struct CalculatorContainerView<Calculator: View & CalculatorModel>: View {
+    let calculator: Calculator
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")) {
+                calculator
+            }
+            .groupBoxStyle(AppGroupBoxStyle())
+            .padding(EdgeInsets(top: 60, leading: 16, bottom: 0, trailing: 16))
+            Spacer()
+        }
+        .navigationBarTitle(calculator.name, displayMode: .inline)
+    }
+    
+    init(_ calculator: Calculator) {
+        self.calculator = calculator
     }
 }
 
-struct RegionalAnesthesiaView: View {
+// MARK: - Result view
+
+struct CalculatorResultView: View {
+    let result: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(result)
+            .padding(22)
+            .background(Color.calculationResult)
+            .foregroundColor(.white)
+            .cornerRadius(8)
+    }
+    
+    init(_ result: String) {
+        self.result = result
     }
 }
 
-struct PhisiologicalLossesView: View {
+// MARK: - Calculators
+
+struct PhisiologicalLossesView: View, CalculatorModel {
+    @State private var weight = ""
+    
+    let name: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NumberFieldView(name: "Вес", hint: "кг", maxValue: 200, binding: $weight)
+        if let result = getResult() {
+            CalculatorResultView(result)
+        }
+    }
+    
+    internal func getResult() -> String? {
+        guard let weight = weight.asPositiveNumber
+        else { return nil }
+        let result = (30 * weight) + 70
+        let dailyLoss = result
+        let injectionRate = result/24
+        return
+            """
+            Потери: \(Int(dailyLoss)) мл/сутки
+            Скорость введения: \(Int(injectionRate)) мл/ч
+            """
     }
 }
 
-struct ComplexVolumeView: View {
+struct ComplexVolumeView: View, CalculatorModel {
+    @State private var weight = ""
+    @State private var dehydration = ""
+    @State private var currentLosses = ""
+    
+    let name: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
+        NumberFieldView(name: "Дегидратация", hint: "%", binding: $dehydration)
+        NumberFieldView(name: "Текущие потери", hint: "мл/ч", binding: $currentLosses)
+        if let result = getResult() {
+            CalculatorResultView(result)
+        }
+    }
+    
+    internal func getResult() -> String? {
+        guard let weight = weight.asPositiveNumber,
+              let dehydration = dehydration.asPositiveNumber,
+              let currentLosses = currentLosses.asPositiveNumber
+        else { return nil }
+        let losses = (30 * weight) + 70
+        let result = (losses + (dehydration * weight * 10) + currentLosses)
+        if dehydration >= 8 {
+            return
+                """
+                Потери: \(Int(result)) мл/сутки
+                Скорость введения: \(Int(result / 24)) мл/ч
+                Рекомендуемая скорость \(Int((1 / 75 * result) / 6)) - \(Int((1 / 50 * result) / 4)) мл/ч в первые 4-6ч,
+                и затем \(Int(result - ((1 / 50 * result) / 6) / 20)) - \(Int(result - ((1 / 50 * result) / 4) / 18)) мл/ч
+                """
+        } else {
+            return
+                """
+                Потери: \(Int(result)) мл/сутки\nСкорость введения: \(Int(result/24)) мл/ч
+                """
+        }
     }
 }
 
@@ -123,11 +211,5 @@ struct EchocardiographyView: View {
 struct MeanArterialPressureView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct EpiduralAnesthesiaView_Previews: PreviewProvider {
-    static var previews: some View {
-        EpiduralAnesthesiaView()
     }
 }

@@ -2,22 +2,23 @@ import SwiftUI
 import Combine
 
 struct NumberFieldView: View {
-    @Binding var number: String
-    private let question: String
+    @Binding var value: String
+    private let name: String
     private let placeholder: String
     private let hint: String
+    private let maxValue: Double
     
     var body: some View {
         HStack(spacing: 40) {
-            QuestionTextView(question: question)
+            QuestionTextView(question: name)
             HStack {
-                TextField(placeholder, text: $number)
+                TextField(placeholder, text: $value)
                     .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
                     .font(.title2)
                     .keyboardType(.numbersAndPunctuation)
                     .disableAutocorrection(true)
                     .multilineTextAlignment(.trailing)
-                    .onReceive(Just(number)) { validateInput($0) }
+                    .onReceive(Just(value)) { validateInput($0) }
                 Text(hint)
                     .padding(.trailing)
                     .foregroundColor(.gray)
@@ -28,25 +29,19 @@ struct NumberFieldView: View {
         }
     }
 
-    init(question: String, placeholder: String = "", hint: String, binding: Binding<String>) {
-        self.question = question
+    init(name: String, placeholder: String = "", hint: String, maxValue: Double = 1000, binding: Binding<String>) {
+        self.name = name
         self.placeholder = placeholder
         self.hint = hint
-        self._number = binding
+        self.maxValue = maxValue
+        self._value = binding
     }
     
-    private func validateInput(_ value: String) {
-        if value.range(of: "^\\d+\\d*\\.?\\d*$", options: .regularExpression) != nil {
-            number = value
-        } else if !number.isEmpty {
-            number = String(value.prefix(number.count - 1))
+    private func validateInput(_ input: String) {
+        if input.range(of: "^\\d+\\d*\\.?\\d*$", options: .regularExpression) != nil, Double(input)! <= maxValue {
+            value = input
+        } else if !value.isEmpty {
+            value = String(input.prefix(value.count - 1))
         }
-    }
-}
-
-struct NumberFieldQuestion_Previews: PreviewProvider {
-    @State static var binding = ""
-    static var previews: some View {
-        NumberFieldView(question: "Вес", hint: "кг", binding: $binding)
     }
 }
