@@ -21,12 +21,6 @@ struct SegmentedFieldView: View {
         self.question = question
         self.options = options
         self._selected = binding
-        UISegmentedControl.appearance()
-            .selectedSegmentTintColor = UIColor(Color.interactiveBlue)
-        UISegmentedControl.appearance()
-            .setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance()
-            .setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
     }
 }
 
