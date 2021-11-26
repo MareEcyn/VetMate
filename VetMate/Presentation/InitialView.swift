@@ -25,6 +25,7 @@ struct InitialView: View {
             UITabBar.appearance().backgroundColor = .white
             UIToolbar.appearance().setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
             UIToolbar.appearance().backgroundColor = .white
+            updatePickerColor()
             // Apple remake nav-bar appearance in iOS 15 and we need return it's back due to visual issues
             if #available(iOS 15.0, *) {
                 let navigationBarAppearance = UINavigationBarAppearance()
@@ -35,6 +36,15 @@ struct InitialView: View {
                 UINavigationBar.appearance().isTranslucent = false
             }
         }
+    }
+    
+    func updatePickerColor() {
+        UISegmentedControl.appearance()
+            .selectedSegmentTintColor = UIColor(Color.interactiveBlue)
+        UISegmentedControl.appearance()
+            .setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance()
+            .setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
     }
 }
 
