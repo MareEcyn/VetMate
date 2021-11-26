@@ -12,14 +12,22 @@ struct CalculatorContainerView<Calculator: View & CalculatorModel>: View {
     
     var body: some View {
         VStack {
-            GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")) {
+            GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                        .foregroundColor(.gray)) {
                 calculator
             }
             .groupBoxStyle(AppGroupBoxStyle())
-            .padding(EdgeInsets(top: 60, leading: 16, bottom: 0, trailing: 16))
+            .padding()
             Spacer()
         }
         .navigationBarTitle(calculator.name, displayMode: .inline)
+        .navigationBarItems(trailing:
+            Button(action: {  },
+                   label: {
+                        Image(systemName: "star")
+                            .foregroundColor(.favorite)
+            })
+        )
     }
     
     init(_ calculator: Calculator) {
@@ -33,8 +41,11 @@ struct CalculatorResultView: View {
     let result: String
     var body: some View {
         Text(result)
-            .padding(22)
-            .background(Color.calculationResult)
+            .font(.subheadline)
+            .fontWeight(.semibold)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0)
+            .padding()
+            .background(Color.calculatorResult)
             .foregroundColor(.white)
             .cornerRadius(8)
     }
@@ -52,9 +63,11 @@ struct PhisiologicalLossesView: View, CalculatorModel {
     let name: String
     
     var body: some View {
-        NumberFieldView(name: "Вес", hint: "кг", maxValue: 200, binding: $weight)
-        if let result = getResult() {
-            CalculatorResultView(result)
+        VStack {
+            NumberFieldView(name: "Вес", hint: "кг", maxValue: 200, binding: $weight)
+            if let result = getResult() {
+                CalculatorResultView(result)
+            }
         }
     }
     
@@ -100,8 +113,7 @@ struct ComplexVolumeView: View, CalculatorModel {
                 """
                 Потери: \(Int(result)) мл/сутки
                 Скорость введения: \(Int(result / 24)) мл/ч
-                Рекомендуемая скорость \(Int((1 / 75 * result) / 6)) - \(Int((1 / 50 * result) / 4)) мл/ч в первые 4-6ч,
-                и затем \(Int(result - ((1 / 50 * result) / 6) / 20)) - \(Int(result - ((1 / 50 * result) / 4) / 18)) мл/ч
+                Рекомендуемая скорость \(Int((1 / 75 * result) / 6)) - \(Int((1 / 50 * result) / 4)) мл/ч в первые 4-6ч, и затем \(Int(result - ((1 / 50 * result) / 6) / 20)) - \(Int(result - ((1 / 50 * result) / 4) / 18)) мл/ч
                 """
         } else {
             return

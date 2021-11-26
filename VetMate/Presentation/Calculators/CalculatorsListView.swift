@@ -9,6 +9,8 @@ struct CalculatorsListView: View {
                 NavigationLink(destination: FavoritesView()) {
                     Text("Избранное")
                         .font(.body)
+                        .fontWeight(.medium)
+                        .foregroundColor(.favorite)
                 }
                 CalculatorsSectionView(name: "Инфузионная терапия",
                                 items: [(name: "Физиологические потери",
@@ -58,6 +60,7 @@ struct CalculatorsListView: View {
             }
             .navigationTitle("Расчеты")
             .listStyle(.inset)
+            .padding(.top)
         }
     }
 }
@@ -77,10 +80,10 @@ struct CalculatorsSectionView: View {
             ForEach(0..<items.count) { index in
                 NavigationLink(destination: items[index].view) {
                     Text(items[index].name)
-                        .font(.body)
+                        .font(.subheadline)
                 }
             }
         }
-        .font(.headline)
+        .font(.body)
     }
 }
