@@ -40,13 +40,11 @@ private struct DrugView: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(drug.name + " \(drug.concentration)")
-                        .font(.subheadline)
-                        .fontWeight(.light)
-                }
-                Text(drug.administrationRoute)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(drug.name)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                Text(drug.concentration)
                     .font(.caption2)
                     .foregroundColor(.gray)
             }
@@ -56,7 +54,7 @@ private struct DrugView: View {
                     Text(drug.getDosageFor(weight: weight, species: species))
                         .font(.title2)
                         .fontWeight(.medium)
-                    Text(drug.unit)
+                    Text(drug.unit + " " + "(\(drug.administrationRoute))")
                         .font(.caption2)
                         .foregroundColor(.gray)
                 }
