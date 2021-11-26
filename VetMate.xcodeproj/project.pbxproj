@@ -30,6 +30,8 @@
 		E69D1BA526D5070B0004A91E /* SegmentedFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA426D5070B0004A91E /* SegmentedFieldView.swift */; };
 		E69D1BA726D532700004A91E /* NumberFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D1BA626D532700004A91E /* NumberFieldView.swift */; };
 		E69EA686274F99710089B4F3 /* Foundation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69EA685274F99710089B4F3 /* Foundation+Ext.swift */; };
+		E69EA6882750C3700089B4F3 /* PickerFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69EA6872750C3700089B4F3 /* PickerFieldView.swift */; };
+		E69EA68A2750CCCC0089B4F3 /* NumberAndPickerFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69EA6892750CCCC0089B4F3 /* NumberAndPickerFieldView.swift */; };
 		E6A609F5274E30DD00FA78A7 /* MeasurementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A609F4274E30DD00FA78A7 /* MeasurementsModel.swift */; };
 		E6A609F7274F574600FA78A7 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A609F6274F574600FA78A7 /* FavoritesView.swift */; };
 		E6EA2B8126E0B52700795DDC /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EA2B8026E0B52700795DDC /* HintView.swift */; };
@@ -64,6 +66,8 @@
 		E69D1BA426D5070B0004A91E /* SegmentedFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedFieldView.swift; sourceTree = "<group>"; };
 		E69D1BA626D532700004A91E /* NumberFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFieldView.swift; sourceTree = "<group>"; };
 		E69EA685274F99710089B4F3 /* Foundation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Ext.swift"; sourceTree = "<group>"; };
+		E69EA6872750C3700089B4F3 /* PickerFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerFieldView.swift; sourceTree = "<group>"; };
+		E69EA6892750CCCC0089B4F3 /* NumberAndPickerFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberAndPickerFieldView.swift; sourceTree = "<group>"; };
 		E6A609F4274E30DD00FA78A7 /* MeasurementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsModel.swift; sourceTree = "<group>"; };
 		E6A609F6274F574600FA78A7 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		E6EA2B8026E0B52700795DDC /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 				E69D1BA626D532700004A91E /* NumberFieldView.swift */,
 				E609B21D26DCAF9500DA398E /* QuestionTextView.swift */,
 				E6EA2B8026E0B52700795DDC /* HintView.swift */,
+				E69EA6872750C3700089B4F3 /* PickerFieldView.swift */,
+				E69EA6892750CCCC0089B4F3 /* NumberAndPickerFieldView.swift */,
 			);
 			path = Supplementary;
 			sourceTree = "<group>";
@@ -397,7 +403,9 @@
 				E69D1BA526D5070B0004A91E /* SegmentedFieldView.swift in Sources */,
 				E669DBD8273B8F6E00CF2132 /* View+Ext.swift in Sources */,
 				E617889126D3AA4D008A5987 /* InitialView.swift in Sources */,
+				E69EA6882750C3700089B4F3 /* PickerFieldView.swift in Sources */,
 				E67627D526DDE26300179D79 /* Scale+Realm.swift in Sources */,
+				E69EA68A2750CCCC0089B4F3 /* NumberAndPickerFieldView.swift in Sources */,
 				E617888F26D3AA4D008A5987 /* VetMateApp.swift in Sources */,
 				E69D1B7B26D3C7590004A91E /* EmergencyView.swift in Sources */,
 				E69D1B7926D3C7480004A91E /* MeasurementsView.swift in Sources */,

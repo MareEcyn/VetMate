@@ -1,12 +1,13 @@
 import SwiftUI
 import Combine
 
-struct NumberFieldView: View {
+struct NumberAndPickerFieldView: View {
     @Binding var numberValue: String
+    @Binding var pickerValue: Int
     private let name: String
     private let placeholder: String
-    private let hint: String
     private let maxValue: Double
+    private let options: [String]
     
     var body: some View {
         HStack(spacing: 40) {
@@ -19,22 +20,25 @@ struct NumberFieldView: View {
                     .disableAutocorrection(true)
                     .multilineTextAlignment(.trailing)
                     .onReceive(Just(numberValue)) { validateInput($0) }
-                Text(hint)
-                    .padding(.trailing)
-                    .foregroundColor(.gray)
-                    .font(.caption)
+                Picker(selection: $pickerValue, label: Text(""), content: {
+                    ForEach(0..<options.count) { index in
+                        Text(options[index]).tag(index)
+                    }
+                })
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
             }
             .background(Color.white)
             .cornerRadius(8)
         }
     }
 
-    init(name: String, placeholder: String = "", hint: String, maxValue: Double = 1000, binding: Binding<String>) {
+    init(name: String, placeholder: String = "", maxValue: Double = 1000, options: [String], numberBinding: Binding<String>, pickerBinding: Binding<Int>) {
         self.name = name
         self.placeholder = placeholder
-        self.hint = hint
         self.maxValue = maxValue
-        self._numberValue = binding
+        self.options = options
+        self._numberValue = numberBinding
+        self._pickerValue = pickerBinding
     }
     
     private func validateInput(_ input: String) {
