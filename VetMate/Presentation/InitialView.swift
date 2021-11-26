@@ -27,14 +27,14 @@ struct InitialView: View {
             UIToolbar.appearance().backgroundColor = .white
             updatePickerColor()
             // Apple remake nav-bar appearance in iOS 15 and we need return it's back due to visual issues
-            if #available(iOS 15.0, *) {
-                let navigationBarAppearance = UINavigationBarAppearance()
-                navigationBarAppearance.configureWithDefaultBackground()
-                UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-                UINavigationBar.appearance().compactAppearance = navigationBarAppearance
-                UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-                UINavigationBar.appearance().isTranslucent = false
-            }
+//            if #available(iOS 15.0, *) {
+//                let navigationBarAppearance = UINavigationBarAppearance()
+//                navigationBarAppearance.configureWithDefaultBackground()
+//                UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+//                UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+//                UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+//                UINavigationBar.appearance().isTranslucent = false
+//            }
         }
     }
     
