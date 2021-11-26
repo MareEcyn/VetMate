@@ -26,6 +26,9 @@ struct ScalesView: View {
                         }
                     }
                     .listStyle(InsetGroupedListStyle())
+                    .refreshable {
+                        viewModel.selectedAnswers.removeAll()
+                    }
                 }
             }
             .navigationBarTitle(viewModel.activeScale == nil ? "Шкалы" : viewModel.activeScale!.name, displayMode: .inline)
@@ -46,7 +49,7 @@ struct ScalesView: View {
             )
             .toolbar(content: {
                 ToolbarItemGroup(placement: .bottomBar) {
-                    if viewModel.activeScale != nil {
+                    if viewModel.activeScale != nil && !viewModel.selectedAnswers.isEmpty {
                         ScalesToolbar(score: viewModel.getResult().value,
                                       description: viewModel.getResult().description)
                     }
@@ -116,8 +119,11 @@ struct ScalesToolbar: View {
             VStack(alignment: .trailing) {
                 Text(score)
                     .font(.callout)
+                    .fontWeight(.bold)
                 Text(description)
                     .font(.callout)
+                    .fontWeight(.light)
+                    .foregroundColor(.gray)
             }
         }
     }
