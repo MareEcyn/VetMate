@@ -5,8 +5,9 @@ struct QuestionTextView: View {
     
     var body: some View {
         Text(question)
-            .font(.callout)
-            .foregroundColor(.black)
+            .font(.footnote)
+            .fontWeight(.semibold)
+            .foregroundColor(.fieldName)
     }
 }
 
