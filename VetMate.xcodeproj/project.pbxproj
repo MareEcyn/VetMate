@@ -544,6 +544,7 @@
 				DEVELOPMENT_TEAM = 98NLZHSYYL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = VetMate/Resources/Info.plist;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,6 +569,7 @@
 				DEVELOPMENT_TEAM = 98NLZHSYYL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = VetMate/Resources/Info.plist;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
