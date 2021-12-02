@@ -9,7 +9,7 @@ struct MeasurementsView: View {
         NavigationView {
             VStack {
                 if !model.inProgress {
-                    HintView("Нажимайте на экран при каждой капле")
+                    HintView("Касайтесь экрана при каждой капле")
                         .padding(40)
                 } else {
                     Text("\(model.resultVolume) мл")
