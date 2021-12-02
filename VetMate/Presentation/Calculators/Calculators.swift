@@ -21,13 +21,6 @@ struct CalculatorContainerView<Calculator: View & CalculatorModel>: View {
             Spacer()
         }
         .navigationBarTitle(calculator.name, displayMode: .inline)
-        .navigationBarItems(trailing:
-            Button(action: {  },
-                   label: {
-                        Image(systemName: "star")
-                            .foregroundColor(.favorite)
-            })
-        )
     }
     
     init(_ calculator: Calculator) {

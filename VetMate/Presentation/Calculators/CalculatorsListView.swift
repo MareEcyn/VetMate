@@ -6,12 +6,6 @@ struct CalculatorsListView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(destination: FavoritesView()) {
-                    Text("Избранное")
-                        .font(.body)
-                        .fontWeight(.medium)
-                        .foregroundColor(.favorite)
-                }
                 CalculatorsSectionView(name: "Инфузионная терапия",
                                 items: [(name: "Физиологические потери",
                                          view: AnyView(CalculatorContainerView(PhisiologicalLossesView(name: "Физиологические потери")))),
