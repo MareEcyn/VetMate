@@ -34,7 +34,7 @@ struct CalculatorResultView: View {
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(Color.calculatorResult)
+                .background(Color._purple)
                 .foregroundColor(.white)
                 .cornerRadius(8)
         }

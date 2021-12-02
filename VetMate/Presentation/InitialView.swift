@@ -20,31 +20,17 @@ struct InitialView: View {
                     TabItem(name: "Счетчик капель", image: "drop")
                 }
         }
+        .accentColor(._blue)
         .onAppear {
-            UITabBar.appearance().backgroundImage = UIImage()
-            UITabBar.appearance().backgroundColor = .white
             UIToolbar.appearance().setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
             UIToolbar.appearance().backgroundColor = .white
-            updatePickerColor()
-            // Apple remake nav-bar appearance in iOS 15 and we need return it's back due to visual issues
-//            if #available(iOS 15.0, *) {
-//                let navigationBarAppearance = UINavigationBarAppearance()
-//                navigationBarAppearance.configureWithDefaultBackground()
-//                UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-//                UINavigationBar.appearance().compactAppearance = navigationBarAppearance
-//                UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-//                UINavigationBar.appearance().isTranslucent = false
-//            }
+            UISegmentedControl.appearance()
+                .selectedSegmentTintColor = UIColor(Color._blue)
+            UISegmentedControl.appearance()
+                .setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+            UISegmentedControl.appearance()
+                .setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         }
-    }
-    
-    func updatePickerColor() {
-        UISegmentedControl.appearance()
-            .selectedSegmentTintColor = UIColor(Color.interactiveBlue)
-        UISegmentedControl.appearance()
-            .setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance()
-            .setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
     }
 }
 

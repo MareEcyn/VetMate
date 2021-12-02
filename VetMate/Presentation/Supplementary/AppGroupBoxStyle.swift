@@ -7,7 +7,7 @@ struct AppGroupBoxStyle: GroupBoxStyle {
             configuration.content
         }
         .padding()
-        .background(Color.group)
+        .background(Color._gray)
         .cornerRadius(8)
     }
 }

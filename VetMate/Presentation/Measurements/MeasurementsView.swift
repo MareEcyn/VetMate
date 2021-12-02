@@ -16,7 +16,7 @@ struct MeasurementsView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding()
-                        .foregroundColor(model.isStabilized ? .green : .black)
+                        .foregroundColor(model.isStabilized ? ._green : ._black)
                     Spacer()
                 }
             }
@@ -33,7 +33,7 @@ struct MeasurementsView: View {
                     Button(action: { model.resetCounter() },
                            label: {
                                 Image(systemName: "arrow.counterclockwise")
-                                    .foregroundColor(.interactiveBlue)
+                                    .foregroundColor(._blue)
                     })
                 }
             }
@@ -41,7 +41,7 @@ struct MeasurementsView: View {
             .background(tappableFieldColor)
             .onTapGesture {
                 withAnimation(.easeInOut(duration: 0.15)) {
-                    tappableFieldColor = .interactiveBlue
+                    tappableFieldColor = ._blue
                                 }
                 withAnimation(.easeInOut(duration: 0.3)) {
                     tappableFieldColor = .white
@@ -80,7 +80,7 @@ struct DropVolumeView: View {
         self.options = options
         self._selected = binding
         UISegmentedControl.appearance()
-            .selectedSegmentTintColor = UIColor(Color.interactiveBlue)
+            .selectedSegmentTintColor = UIColor(Color._blue)
         UISegmentedControl.appearance()
             .setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance()

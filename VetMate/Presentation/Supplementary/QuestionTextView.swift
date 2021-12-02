@@ -7,7 +7,7 @@ struct QuestionTextView: View {
         Text(question)
             .font(.footnote)
             .fontWeight(.semibold)
-            .foregroundColor(.fieldName)
+            .foregroundColor(._black)
     }
 }
 

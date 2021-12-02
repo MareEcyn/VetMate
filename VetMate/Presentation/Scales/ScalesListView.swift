@@ -13,7 +13,7 @@ struct ScalesListView: View {
             Button(action: { dissmissView() },
                    label: { Text("Закрыть") })
                 .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 16))
-                .foregroundColor(.interactiveBlue)
+                .foregroundColor(._blue)
         }
         List {
             ForEach(scalesList, id: \.name) { scale in

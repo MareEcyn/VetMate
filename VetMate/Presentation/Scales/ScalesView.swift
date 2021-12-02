@@ -37,7 +37,7 @@ struct ScalesView: View {
                 Button(action: { isScaleListDisplayed = true },
                        label: {
                             Image(systemName: "list.bullet.rectangle.fill")
-                                .foregroundColor(.interactiveBlue)
+                                .foregroundColor(._blue)
                 })
                 .popover(isPresented: $isScaleListDisplayed,
                          content: {
@@ -74,7 +74,7 @@ extension ScalesView {
     /// - Returns: Tuple represented background and foreground colors for specified row
     private func getRowColor(forRow row: Int, inSection section: Int) -> (Color, Color) {
         if viewModel.selectedAnswers[section] == row {
-            return (.interactiveBlue, .white)
+            return (._blue, .white)
         }
         return (.white, .black)
     }
@@ -139,17 +139,17 @@ struct PainScaleToolbar: View {
         var color = Color.black
         switch Int(score)! {
         case 10...12:
-            color = .red
+            color = ._red
         case 7...9:
-            color = .orange
+            color = ._orange
         case 4...6:
-            color = .yellow
+            color = ._yellow
         case 1...3:
-            color = .green
+            color = ._green
         case 0:
-            color = .blue
+            color = ._blue
         default:
-            color = .black
+            color = ._black
         }
         return color
     }
