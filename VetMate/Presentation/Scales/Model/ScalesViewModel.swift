@@ -76,11 +76,13 @@ extension ScalesViewModel {
             switch score {
             case 10...12:
                 description = "сильная боль"
-            case 6...9:
-                description = "боль средней силы"
-            case 2...5:
+            case 7...9:
+                description = "значительная боль"
+            case 4...6:
+                description = "умеренная или значительная боль"
+            case 1...3:
                 description = "умеренная боль"
-            case 0...1:
+            case 0:
                 description = "боли нет, или она минимальна"
             default:
                 description = "n/a"

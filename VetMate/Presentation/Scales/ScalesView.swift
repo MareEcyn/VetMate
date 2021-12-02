@@ -140,11 +140,13 @@ struct PainScaleToolbar: View {
         switch Int(score)! {
         case 10...12:
             color = .red
-        case 6...9:
+        case 7...9:
             color = .orange
-        case 2...5:
+        case 4...6:
+            color = .yellow
+        case 1...3:
             color = .green
-        case 0...1:
+        case 0:
             color = .blue
         default:
             color = .black
