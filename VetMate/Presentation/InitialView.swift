@@ -22,6 +22,8 @@ struct InitialView: View {
         }
         .accentColor(._blue)
         .onAppear {
+            UITabBar.appearance().backgroundImage = UIImage()
+            UITabBar.appearance().backgroundColor = .white
             UIToolbar.appearance().setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
             UIToolbar.appearance().backgroundColor = .white
             UISegmentedControl.appearance()
