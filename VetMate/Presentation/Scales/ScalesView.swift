@@ -7,6 +7,7 @@ struct ScalesView: View {
     
     var body: some View {
         NavigationView {
+            ZStack {
             Group {
                 if viewModel.activeScale == nil {
                     HintView("Выберите шкалу")
@@ -47,14 +48,19 @@ struct ScalesView: View {
                                 }
                         )
             )
-            .toolbar(content: {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    if viewModel.activeScale != nil && !viewModel.selectedAnswers.isEmpty {
-                        ScalesToolbar(score: viewModel.getResult().value,
-                                      description: viewModel.getResult().description)
+                if viewModel.activeScale != nil && !viewModel.selectedAnswers.isEmpty {
+                    VStack {
+                        Spacer()
+                        if viewModel.activeScale!.name.contains("Шкала боли") {
+                            PainScaleToolbar(score: viewModel.getResult().value,
+                                             description: viewModel.getResult().description)
+                        } else {
+                            ScalesToolbar(score: viewModel.getResult().value,
+                                          description: viewModel.getResult().description)
+                        }
                     }
                 }
-            })
+            }
         }
     }
 }
@@ -111,10 +117,6 @@ struct ScalesToolbar: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            Text("Очки")
-                .font(.caption)
-                .fontWeight(.bold)
-                .foregroundColor(.gray)
             Spacer()
             VStack(alignment: .trailing) {
                 Text(score)
@@ -123,8 +125,53 @@ struct ScalesToolbar: View {
                 Text(description)
                     .font(.callout)
                     .fontWeight(.light)
-                    .foregroundColor(.gray)
             }
         }
+        .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
+        .background(Color.white)
+    }
+}
+
+struct PainScaleToolbar: View {
+    let score: String
+    let description: String
+    var backgroundColor: Color {
+        var color = Color.black
+        switch Int(score)! {
+        case 10...12:
+            color = .red
+        case 6...9:
+            color = .orange
+        case 2...5:
+            color = .green
+        case 0...1:
+            color = .blue
+        default:
+            color = .black
+        }
+        return color
+    }
+    
+    var body: some View {
+        HStack(alignment: .top) {
+            Button(action: {  },
+                   label: {
+                        Image(systemName: "eye.square.fill")
+                            .foregroundColor(.white)
+            })
+            Spacer()
+            VStack(alignment: .trailing) {
+                Text(score)
+                    .font(.callout)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                Text(description)
+                    .font(.callout)
+                    .fontWeight(.light)
+                    .foregroundColor(.white)
+            }
+        }
+        .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
+        .background(backgroundColor)
     }
 }

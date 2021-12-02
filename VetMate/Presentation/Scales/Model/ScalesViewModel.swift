@@ -72,20 +72,7 @@ extension ScalesViewModel {
             default:
                 description = "n/a"
             }
-        case "Шкала боли (собаки)":
-            switch score {
-            case 10...12:
-                description = "сильная боль"
-            case 6...9:
-                description = "боль средней силы"
-            case 2...5:
-                description = "умеренная боль"
-            case 0...1:
-                description = "боли нет, или она минимальна"
-            default:
-                description = "n/a"
-            }
-        case "Шкала боли (кошки)":
+            case "Шкала боли (собаки)", "Шкала боли (кошки)":
             switch score {
             case 10...12:
                 description = "сильная боль"
