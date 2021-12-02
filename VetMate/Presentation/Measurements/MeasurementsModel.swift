@@ -5,7 +5,16 @@ class MeasurementsModel: ObservableObject {
     private var lastDropTime: Double?
     private var dropsRates: [Int]?
     @Published var resultVolume = 0
+    private var resultVolumes = [Int]()
     private(set) var inProgress = false
+    var isStabilized: Bool {
+        guard resultVolumes.count >= 5 else { return false }
+        let subsequence = resultVolumes.suffix(5)
+        let average = (subsequence.reduce(0, +) / subsequence.count)
+        let allowableError = Double(average) * 0.02
+        let delta = subsequence.max()! - subsequence.min()!
+        return Double(delta) <= allowableError ? true : false
+    }
     
     /// Update resulted volume with new drop.
     /// - Parameter volume: how many drops in ml.
@@ -18,6 +27,7 @@ class MeasurementsModel: ObservableObject {
             dropsRates?.append(rate)
             let ratesSum = dropsRates!.reduce(0, +)
             resultVolume = (ratesSum / dropsRates!.count) / volume
+            resultVolumes.append(resultVolume)
         } else {
             dropsRates = []
             lastDropTime = CACurrentMediaTime()

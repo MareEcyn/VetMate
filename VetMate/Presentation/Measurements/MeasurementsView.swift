@@ -11,9 +11,16 @@ struct MeasurementsView: View {
                 if !model.inProgress {
                     HintView("Нажимайте на экран при каждой капле")
                         .padding(40)
+                } else {
+                    Text("\(model.resultVolume) мл")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding()
+                        .foregroundColor(model.isStabilized ? .green : .black)
+                    Spacer()
                 }
             }
-            .navigationTitle("\(model.resultVolume) мл")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     DropVolumeView(options: ["20 в мл", "60 в мл"], binding: $activeSegment)
