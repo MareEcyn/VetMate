@@ -7,43 +7,43 @@ struct CalculatorsListView: View {
         NavigationView {
             List {
                 CalculatorsSectionView(name: "Инфузионная терапия",
-                                items: [(name: "Физиологические потери",
-                                         view: AnyView(CalculatorContainerView(PhisiologicalLossesView(name: "Физиологические потери")))),
-                                        (name: "Complex volume",
-                                         view: AnyView(CalculatorContainerView(ComplexVolumeView(name: "Complex volume")))),
-                                        (name: "Дефицит свободной воды",
-                                         view: AnyView(CalculatorContainerView(FreeWaterDeficitView(name: "Дефицит свободной воды")))),
-                                        (name: "Инфузия K+",
-                                         view: AnyView(CalculatorContainerView(KInfusionView(name: "Инфузия K+")))),
-                                        (name: "Осмоляльность",
-                                         view: AnyView(CalculatorContainerView(OsmolalityView(name: "Осмоляльность"))))
+                                       items: [(name: PhisiologicalLossesView.name,
+                                         view: AnyView(CalculatorContainerView(PhisiologicalLossesView()))),
+                                               (name: ComplexVolumeView.name,
+                                         view: AnyView(CalculatorContainerView(ComplexVolumeView()))),
+                                               (name: FreeWaterDeficitView.name,
+                                         view: AnyView(CalculatorContainerView(FreeWaterDeficitView()))),
+                                               (name: KInfusionView.name,
+                                         view: AnyView(CalculatorContainerView(KInfusionView()))),
+                                               (name: OsmolalityView.name,
+                                         view: AnyView(CalculatorContainerView(OsmolalityView())))
                                        ])
                 CalculatorsSectionView(name: "Дозировки",
                                 items: [
-                                    (name: "ИПС",
-                                         view: AnyView(CalculatorContainerView(CRIView(name: "ИПС")))),
-                                        (name: "Дозы",
-                                         view: AnyView(CalculatorContainerView(DosesView(name: "Дозы")))),
-                                        (name: "Площадь поверхности тела",
-                                         view: AnyView(CalculatorContainerView(BodySurfaceAreaView(name: "Площадь поверхности тела"))))
+                                    (name: CRIView.name,
+                                         view: AnyView(CalculatorContainerView(CRIView()))),
+                                    (name: DosesView.name,
+                                         view: AnyView(CalculatorContainerView(DosesView()))),
+                                    (name: BodySurfaceAreaView.name,
+                                         view: AnyView(CalculatorContainerView(BodySurfaceAreaView())))
                                         ])
                 CalculatorsSectionView(name: "Гемотрансфузия",
-                                items: [(name: "ОЦК",
-                                         view: AnyView(CalculatorContainerView(BloodVolumeView(name: "ОЦК"))))
+                                       items: [(name: BloodVolumeView.name,
+                                         view: AnyView(CalculatorContainerView(BloodVolumeView())))
 //                                        (name: "Флеботомия",
 //                                         view: CalculatorContainerView(PhlebotomyView())),
 //                                        (name: "Трансфузия",
 //                                         view: CalculatorContainerView(TransfusionView()))
                                        ])
                 CalculatorsSectionView(name: "Газы крови",
-                                items: [(name: "Дефицит анионов",
-                                         view: AnyView(CalculatorContainerView(AnionDeficitView(name: "Дефицит анионов")))),
-                                        (name: "Дефицит бикарбонатов",
-                                         view: AnyView(CalculatorContainerView(BicarbonateDeficitView(name: "Дефицит бикарбонатов")))),
-                                        (name: "Aa градиент",
-                                         view: AnyView(CalculatorContainerView(AaGradientView(name: "Aa градиент")))),
-                                        (name: "Кислотно-щелочной баланс",
-                                         view: AnyView(CalculatorContainerView(AcidBaseBalanceView(name: "Кислотно-щелочной баланс"))))
+                                       items: [(name: AnionDeficitView.name,
+                                         view: AnyView(CalculatorContainerView(AnionDeficitView()))),
+                                               (name: BicarbonateDeficitView.name,
+                                         view: AnyView(CalculatorContainerView(BicarbonateDeficitView()))),
+                                               (name: AaGradientView.name,
+                                         view: AnyView(CalculatorContainerView(AaGradientView()))),
+                                               (name: AcidBaseBalanceView.name,
+                                         view: AnyView(CalculatorContainerView(AcidBaseBalanceView())))
                                        ])
 //                CalculatorsSectionView(name: "Растворы",
 //                                items: [(name: "Добавочный объем",
@@ -54,8 +54,8 @@ struct CalculatorsListView: View {
                                 items: [
 //                                    (name: "Эхокардиография",
 //                                         view: CalculatorContainerView(EchocardiographyView())),
-                                        (name: "Среднее артериальное давление",
-                                         view: AnyView(CalculatorContainerView(MeanArterialPressureView(name: "Среднее артериальное давление"))))
+                                    (name: MeanArterialPressureView.name,
+                                         view: AnyView(CalculatorContainerView(MeanArterialPressureView())))
                                 ])
             }
             .navigationTitle("Расчеты")

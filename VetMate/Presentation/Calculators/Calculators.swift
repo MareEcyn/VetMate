@@ -1,7 +1,7 @@
 import SwiftUI
 
 protocol CalculatorModel {
-    var name: String { get }
+    static var name: String { get }
     func getResult() -> String?
 }
 
@@ -12,15 +12,10 @@ struct CalculatorContainerView<Calculator: View & CalculatorModel>: View {
     
     var body: some View {
         VStack {
-            GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
-                        .foregroundColor(.gray)) {
-                calculator
-            }
-            .groupBoxStyle(AppGroupBoxStyle())
-            .padding()
+            calculator
             Spacer()
         }
-        .navigationBarTitle(calculator.name, displayMode: .inline)
+        .navigationBarTitle(Calculator.name, displayMode: .inline)
     }
     
     init(_ calculator: Calculator) {
@@ -33,14 +28,17 @@ struct CalculatorContainerView<Calculator: View & CalculatorModel>: View {
 struct CalculatorResultView: View {
     let result: String
     var body: some View {
-        Text(result)
-            .font(.subheadline)
-            .fontWeight(.semibold)
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0)
-            .padding()
-            .background(Color.calculatorResult)
-            .foregroundColor(.white)
-            .cornerRadius(8)
+        Group {
+            Text(result)
+                .font(.subheadline)
+                .fontWeight(.semibold)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.calculatorResult)
+                .foregroundColor(.white)
+                .cornerRadius(8)
+        }
+        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
     }
     
     init(_ result: String) {
@@ -53,15 +51,20 @@ struct CalculatorResultView: View {
 struct PhisiologicalLossesView: View, CalculatorModel {
     @State private var weight = ""
     
-    let name: String
+    static let name = "Физиологические потери"
     
     var body: some View {
-        VStack {
-            NumberFieldView(name: "Вес", hint: "кг", maxValue: 200, binding: $weight)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                NumberFieldView(name: "Вес", hint: "кг", maxValue: 200, binding: $weight)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
             if let result = getResult() {
                 CalculatorResultView(result)
             }
-        }
     }
     
     internal func getResult() -> String? {
@@ -83,12 +86,19 @@ struct ComplexVolumeView: View, CalculatorModel {
     @State private var dehydration = ""
     @State private var currentLosses = ""
     
-    let name: String
+    static let name = "Complex Volume"
     
     var body: some View {
-        NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
-        NumberFieldView(name: "Дегидратация", hint: "%", binding: $dehydration)
-        NumberFieldView(name: "Текущие потери", hint: "мл/ч", binding: $currentLosses)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
+                NumberFieldView(name: "Дегидратация", hint: "%", binding: $dehydration)
+                NumberFieldView(name: "Текущие потери", hint: "мл/ч", binding: $currentLosses)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -122,12 +132,19 @@ struct FreeWaterDeficitView: View, CalculatorModel {
     @State private var currentNa = ""
     @State private var desiredNa = ""
     
-    let name: String
+    static let name = "Дефицит свободной воды"
     
     var body: some View {
-        NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
-        NumberFieldView(name: "Текущий Na", hint: "ммоль/л", binding: $currentNa)
-        NumberFieldView(name: "Требуемый Na", hint: "ммоль/л", binding: $desiredNa)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
+                NumberFieldView(name: "Текущий Na", hint: "ммоль/л", binding: $currentNa)
+                NumberFieldView(name: "Требуемый Na", hint: "ммоль/л", binding: $desiredNa)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -155,16 +172,23 @@ struct KInfusionView: View, CalculatorModel {
     let solutionVolumes = ["100 мл", "250 мл", "500 мл", "1000 мл", "Другое"]
     let solutionTypes = ["NaCl 0.9%", "Раствор Рингера"]
     
-    let name: String
+    static let name = "Инфузия K+"
     
     var body: some View {
-        NumberFieldView(name: "Калий", hint: "ммоль/л", binding: $potassium)
-        PickerFieldView(name: "Объем раствора", options: solutionVolumes, binding: $solutionVolumeIndex)
-        if solutionVolumeIndex == solutionVolumes.count - 1 {
-            NumberFieldView(name: "", hint: "мл", binding: $solutionVolume)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                NumberFieldView(name: "Калий", hint: "ммоль/л", binding: $potassium)
+                PickerFieldView(name: "Объем раствора", options: solutionVolumes, binding: $solutionVolumeIndex)
+                if solutionVolumeIndex == solutionVolumes.count - 1 {
+                    NumberFieldView(name: "", hint: "мл", binding: $solutionVolume)
+                }
+                PickerFieldView(name: "Тип раствора", options: solutionTypes, binding: $solutionTypeIndex)
+                NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
+            }
         }
-        PickerFieldView(name: "Тип раствора", options: solutionTypes, binding: $solutionTypeIndex)
-        NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -186,12 +210,19 @@ struct OsmolalityView: View, CalculatorModel {
     @State private var bun = "" // blood urea nitrogen
     @State private var glucose = ""
     
-    let name: String
+    static let name = "Осмоляльность"
     
     var body: some View {
-        NumberFieldView(name: "Натрий", hint: "ммоль/л", binding: $sodium)
-        NumberFieldView(name: "Азот мочевины", hint: "ммоль/л", binding: $bun)
-        NumberFieldView(name: "Глюкоза", hint: "ммоль/л", binding: $glucose)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                NumberFieldView(name: "Натрий", hint: "ммоль/л", binding: $sodium)
+                NumberFieldView(name: "Азот мочевины", hint: "ммоль/л", binding: $bun)
+                NumberFieldView(name: "Глюкоза", hint: "ммоль/л", binding: $glucose)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -222,14 +253,21 @@ struct CRIView: View, CalculatorModel {
     let speedUnits = ["мл/ч", "мл/мин"]
     let injectorVolumes = ["10", "20", "60"]
     
-    let name: String
+    static let name = "ИПС"
     
     var body: some View {
-        NumberFieldView(name: "Масса", hint: "кг", binding: $weight)
-        NumberAndPickerFieldView(name: "Доза", options: doseUnits, numberBinding: $doseValue, pickerBinding: $doseUnitIndex)
-        NumberAndPickerFieldView(name: "Скорость", options: speedUnits, numberBinding: $speedValue, pickerBinding: $speedUnitIndex)
-        SegmentedFieldView(question: "Объём шприца", options: injectorVolumes, binding: $injectorVolumeIndex)
-        NumberFieldView(name: "Концентрация", hint: "%", binding: $concentration)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                NumberFieldView(name: "Масса", hint: "кг", binding: $weight)
+                NumberAndPickerFieldView(name: "Доза", options: doseUnits, numberBinding: $doseValue, pickerBinding: $doseUnitIndex)
+                NumberAndPickerFieldView(name: "Скорость", options: speedUnits, numberBinding: $speedValue, pickerBinding: $speedUnitIndex)
+                SegmentedFieldView(question: "Объём шприца", options: injectorVolumes, binding: $injectorVolumeIndex)
+                NumberFieldView(name: "Концентрация", hint: "%", binding: $concentration)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -255,12 +293,19 @@ struct DosesView: View, CalculatorModel {
     let doseUnits = ["мкг/кг", "мг/кг", "г/кг"]
     let concentrationUnits = ["мкг/л", "мг/л", "г/л"]
     
-    let name: String
+    static let name = "Расчет доз"
     
     var body: some View {
-        NumberFieldView(name: "Масса", hint: "кг", binding: $weight)
-        NumberAndPickerFieldView(name: "Дозировка", options: doseUnits, numberBinding: $doseValue, pickerBinding: $doseUnitIndex)
-        NumberAndPickerFieldView(name: "Концентрация", options: concentrationUnits, numberBinding: $concentrationValue, pickerBinding: $concentrationUnitIndex)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                NumberFieldView(name: "Масса", hint: "кг", binding: $weight)
+                NumberAndPickerFieldView(name: "Дозировка", options: doseUnits, numberBinding: $doseValue, pickerBinding: $doseUnitIndex)
+                NumberAndPickerFieldView(name: "Концентрация", options: concentrationUnits, numberBinding: $concentrationValue, pickerBinding: $concentrationUnitIndex)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -281,11 +326,18 @@ struct BodySurfaceAreaView: View, CalculatorModel {
     @State private var species = 1
     @State private var weight = ""
     
-    let name: String
+    static let name = "Площадь поверхности тела"
     
     var body: some View {
-        SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
-        NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
+                NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -308,11 +360,18 @@ struct BloodVolumeView: View, CalculatorModel {
     @State private var species = 1
     @State private var weight = ""
     
-    let name: String
+    static let name = "ОЦК"
     
     var body: some View {
-        SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
-        NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
+                NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -347,13 +406,20 @@ struct AnionDeficitView: View, CalculatorModel  {
     @State private var chlorine = ""
     @State private var bicarbonate = ""
     
-    let name: String
+    static let name = "Дефицит анионов"
     
     var body: some View {
-        NumberFieldView(name: "Натрий", hint: "мЭкв/л", binding: $sodium)
-        NumberFieldView(name: "Калий", hint: "мЭкв/л", binding: $potassium)
-        NumberFieldView(name: "Хлор", hint: "мЭкв/л", binding: $chlorine)
-        NumberFieldView(name: "Гидрокарбонаты", hint: "мЭкв/л", binding: $bicarbonate)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                NumberFieldView(name: "Натрий", hint: "мЭкв/л", binding: $sodium)
+                NumberFieldView(name: "Калий", hint: "мЭкв/л", binding: $potassium)
+                NumberFieldView(name: "Хлор", hint: "мЭкв/л", binding: $chlorine)
+                NumberFieldView(name: "Гидрокарбонаты", hint: "мЭкв/л", binding: $bicarbonate)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -378,12 +444,19 @@ struct BicarbonateDeficitView: View, CalculatorModel {
     @State private var weight = ""
     @State private var bicarbonate = ""
     
-    let name: String
+    static let name = "Дефицит бикарбонатов"
     
     var body: some View {
-        SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
-        NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
-        NumberFieldView(name: "Гидрокарбонаты", hint: "ммоль/л", binding: $bicarbonate)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
+                NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
+                NumberFieldView(name: "Гидрокарбонаты", hint: "ммоль/л", binding: $bicarbonate)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -408,15 +481,22 @@ struct AaGradientView: View, CalculatorModel {
     @State private var FIO2 = ""
     let FIO2_options = ["100%", "Атмосферный", "Другой"]
     
-    let name: String
+    static let name = "А-а градиент"
     
     var body: some View {
-        NumberFieldView(name: "PaO2", hint: "мм р.с.", binding: $PaO2)
-        NumberFieldView(name: "PaCO2", hint: "мм р.с.", binding: $PaCO2)
-        PickerFieldView(name: "FIO2", options: FIO2_options, binding: $FIO2_valueIndex)
-        if FIO2_valueIndex == FIO2_options.count - 1 {
-            NumberFieldView(name: "", hint: "%", binding: $FIO2)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                NumberFieldView(name: "PaO2", hint: "мм р.с.", binding: $PaO2)
+                NumberFieldView(name: "PaCO2", hint: "мм р.с.", binding: $PaCO2)
+                PickerFieldView(name: "FIO2", options: FIO2_options, binding: $FIO2_valueIndex)
+                if FIO2_valueIndex == FIO2_options.count - 1 {
+                    NumberFieldView(name: "", hint: "%", binding: $FIO2)
+                }
+            }
         }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -439,13 +519,20 @@ struct AcidBaseBalanceView: View, CalculatorModel {
     @State private var pCO2 = ""
     @State private var HCO3 = ""
     
-    let name: String
+    static let name = "Кислотно-щелочной баланс"
     
     var body: some View {
-        SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
-        NumberFieldView(name: "pH", hint: "кг", binding: $pH)
-        NumberFieldView(name: "pCO2", hint: "кПа", binding: $pCO2)
-        NumberFieldView(name: "HCO3", hint: "ммоль/л", binding: $HCO3)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
+                NumberFieldView(name: "pH", hint: "кг", binding: $pH)
+                NumberFieldView(name: "pCO2", hint: "кПа", binding: $pCO2)
+                NumberFieldView(name: "HCO3", hint: "ммоль/л", binding: $HCO3)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
@@ -486,11 +573,18 @@ struct MeanArterialPressureView: View, CalculatorModel {
     @State private var systolicPressure = ""
     @State private var diastolicPressure = ""
     
-    let name: String
+    static let name = "Среднее артериальное давление"
     
     var body: some View {
-        NumberFieldView(name: "Систолическое", hint: "кПа", binding: $systolicPressure)
-        NumberFieldView(name: "Диастолическое", hint: "кПа", binding: $diastolicPressure)
+        GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
+                    .foregroundColor(.gray)) {
+            VStack {
+                NumberFieldView(name: "Систолическое", hint: "кПа", binding: $systolicPressure)
+                NumberFieldView(name: "Диастолическое", hint: "кПа", binding: $diastolicPressure)
+            }
+        }
+        .groupBoxStyle(AppGroupBoxStyle())
+        .padding()
         if let result = getResult() {
             CalculatorResultView(result)
         }
