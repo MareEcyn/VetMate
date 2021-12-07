@@ -5,7 +5,7 @@ struct ScalesListView: View {
     let scalesList: Results<Scale>
     @Binding var activeScale: Scale?
     @Binding var selectedAnswers: [Int: Int]
-    @Binding var isScaleListDisplayed: Bool
+    @Binding var isScalesListDisplayed: Bool
     
     var body: some View {
         HStack {
@@ -18,13 +18,14 @@ struct ScalesListView: View {
         List {
             ForEach(scalesList, id: \.name) { scale in
                 ScalesListRow(name: scale.name, author: scale.author)
-                .onTapGesture {
-                    dissmissView()
-                    wipeAnswers()
-                    showScale(scale)
-                }
+                    .onTapGesture {
+                        dissmissView()
+                        wipeAnswers()
+                        showScale(scale)
+                    }
             }
-        }.listStyle(PlainListStyle())
+        }
+        .listStyle(PlainListStyle())
     }
     
     private func wipeAnswers() {
@@ -32,7 +33,7 @@ struct ScalesListView: View {
     }
     
     private func dissmissView() {
-        isScaleListDisplayed = false
+        isScalesListDisplayed = false
     }
     
     private func showScale(_ scale: Scale) {

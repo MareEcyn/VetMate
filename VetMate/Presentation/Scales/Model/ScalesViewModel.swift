@@ -3,39 +3,39 @@
 import RealmSwift
 
 class ScalesViewModel: ObservableObject {
-    typealias Result = (value: String, description: String)
+    typealias ScaleResult = (value: String, description: String)
     @Published var activeScale: Scale?
-    @Published var selectedAnswers = [Int: Int]() // [question table index: answer table index]
+    @Published var currentAnswers = [Int: Int]() // [question table index: answer table index]
     @ObservedResults(Scale.self) var scales
 }
 
 extension ScalesViewModel {
     
-    /// Update answers when user specified new choice.
+    /// Update answers with new answer.
     /// - Parameters:
     ///   - answer: answer index
     ///   - question: question index
     func updateAnswers(withAnswer answer: Int, forQuestion question: Int) {
-        if selectedAnswers[question] == nil {
-            selectedAnswers[question] = answer
+        if currentAnswers[question] == nil {
+            currentAnswers[question] = answer
         } else {
-            if selectedAnswers[question] == answer {
-                selectedAnswers.removeValue(forKey: question)
+            if currentAnswers[question] == answer {
+                currentAnswers.removeValue(forKey: question)
             } else {
-                selectedAnswers[question] = answer
+                currentAnswers[question] = answer
             }
         }
     }
     
-    /// Calculate and return scale result from selected answers.
-    /// - Returns: Tuple represented score as label `value` and it's descryption as label `description`
-    func getResult() -> Result {
-        guard let scale = activeScale, !selectedAnswers.isEmpty else {
+    /// Return scale result for selected answers.
+    /// - Returns: Tuple represented score with label `value` and it's descryption with label `description`
+    func getScaleResult() -> ScaleResult {
+        guard let scale = activeScale, !currentAnswers.isEmpty else {
             return (value: "Нет", description: "Данных")
         }
         var score = 0
         var description = ""
-        for question in selectedAnswers {
+        for question in currentAnswers {
             score += scale.questions[question.key].answers[question.value].score
         }
         switch scale.name {
@@ -72,7 +72,7 @@ extension ScalesViewModel {
             default:
                 description = "n/a"
             }
-            case "Шкала боли (собаки)", "Шкала боли (кошки)":
+        case "Шкала боли (собаки)", "Шкала боли (кошки)":
             switch score {
             case 10...12:
                 description = "сильная боль"

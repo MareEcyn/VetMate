@@ -26,12 +26,6 @@ struct InitialView: View {
             UITabBar.appearance().backgroundColor = .white
             UIToolbar.appearance().setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
             UIToolbar.appearance().backgroundColor = .white
-            UISegmentedControl.appearance()
-                .selectedSegmentTintColor = UIColor(Color._blue)
-            UISegmentedControl.appearance()
-                .setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-            UISegmentedControl.appearance()
-                .setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         }
     }
 }
@@ -41,7 +35,7 @@ struct InitialView: View {
 struct TabItem: View {
     let name: String
     let image: String
-
+    
     var body: some View {
         Image(systemName: image)
         Text(name)

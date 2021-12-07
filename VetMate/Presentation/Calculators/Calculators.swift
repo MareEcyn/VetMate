@@ -72,7 +72,7 @@ struct PhisiologicalLossesView: View, CalculatorModel {
         else { return nil }
         let result = (30 * weight) + 70
         let dailyLoss = result
-        let injectionRate = result/24
+        let injectionRate = result / 24
         return
             """
             Потери: \(Int(dailyLoss)) мл/сутки
@@ -260,9 +260,9 @@ struct CRIView: View, CalculatorModel {
                     .foregroundColor(.gray)) {
             VStack {
                 NumberFieldView(name: "Масса", hint: "кг", binding: $weight)
-                NumberAndPickerFieldView(name: "Доза", options: doseUnits, numberBinding: $doseValue, pickerBinding: $doseUnitIndex)
-                NumberAndPickerFieldView(name: "Скорость", options: speedUnits, numberBinding: $speedValue, pickerBinding: $speedUnitIndex)
-                SegmentedFieldView(question: "Объём шприца", options: injectorVolumes, binding: $injectorVolumeIndex)
+                NumberAndPickerFieldView(name: "Доза", options: doseUnits, textBinding: $doseValue, pickerBinding: $doseUnitIndex)
+                NumberAndPickerFieldView(name: "Скорость", options: speedUnits, textBinding: $speedValue, pickerBinding: $speedUnitIndex)
+                SegmentedFieldView(name: "Объём шприца", segments: injectorVolumes, binding: $injectorVolumeIndex)
                 NumberFieldView(name: "Концентрация", hint: "%", binding: $concentration)
             }
         }
@@ -300,8 +300,8 @@ struct DosesView: View, CalculatorModel {
                     .foregroundColor(.gray)) {
             VStack {
                 NumberFieldView(name: "Масса", hint: "кг", binding: $weight)
-                NumberAndPickerFieldView(name: "Дозировка", options: doseUnits, numberBinding: $doseValue, pickerBinding: $doseUnitIndex)
-                NumberAndPickerFieldView(name: "Концентрация", options: concentrationUnits, numberBinding: $concentrationValue, pickerBinding: $concentrationUnitIndex)
+                NumberAndPickerFieldView(name: "Дозировка", options: doseUnits, textBinding: $doseValue, pickerBinding: $doseUnitIndex)
+                NumberAndPickerFieldView(name: "Концентрация", options: concentrationUnits, textBinding: $concentrationValue, pickerBinding: $concentrationUnitIndex)
             }
         }
         .groupBoxStyle(AppGroupBoxStyle())
@@ -332,7 +332,7 @@ struct BodySurfaceAreaView: View, CalculatorModel {
         GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
                     .foregroundColor(.gray)) {
             VStack {
-                SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
+                SegmentedFieldView(name: "Вид", segments: ["Кошка", "Собака"], binding: $species)
                 NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
             }
         }
@@ -347,8 +347,11 @@ struct BodySurfaceAreaView: View, CalculatorModel {
         guard let weight = weight.asPositiveNumber
         else { return nil }
         var result = 0.0
-        if species == 0 { result = 0.101 * Double(pow(weight, 2 / 3)) }
-        else { result = 0.1 * Double(pow(weight, 2 / 3)) }
+        if species == 0 {
+            result = 0.101 * Double(pow(weight, 2 / 3))
+        } else {
+            result = 0.1 * Double(pow(weight, 2 / 3))
+        }
         return
             """
             Площадь поверхности тела: \(result.accuracy(4)) м2
@@ -366,7 +369,7 @@ struct BloodVolumeView: View, CalculatorModel {
         GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
                     .foregroundColor(.gray)) {
             VStack {
-                SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
+                SegmentedFieldView(name: "Вид", segments: ["Кошка", "Собака"], binding: $species)
                 NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
             }
         }
@@ -400,7 +403,7 @@ struct TransfusionView: View {
     }
 }
 
-struct AnionDeficitView: View, CalculatorModel  {
+struct AnionDeficitView: View, CalculatorModel {
     @State private var sodium = ""
     @State private var potassium = ""
     @State private var chlorine = ""
@@ -450,7 +453,7 @@ struct BicarbonateDeficitView: View, CalculatorModel {
         GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
                     .foregroundColor(.gray)) {
             VStack {
-                SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
+                SegmentedFieldView(name: "Вид", segments: ["Кошка", "Собака"], binding: $species)
                 NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
                 NumberFieldView(name: "Гидрокарбонаты", hint: "ммоль/л", binding: $bicarbonate)
             }
@@ -525,7 +528,7 @@ struct AcidBaseBalanceView: View, CalculatorModel {
         GroupBox(label: Label("Данные пациента", systemImage: "list.bullet.rectangle.portrait.fill")
                     .foregroundColor(.gray)) {
             VStack {
-                SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
+                SegmentedFieldView(name: "Вид", segments: ["Кошка", "Собака"], binding: $species)
                 NumberFieldView(name: "pH", hint: "кг", binding: $pH)
                 NumberFieldView(name: "pCO2", hint: "кПа", binding: $pCO2)
                 NumberFieldView(name: "HCO3", hint: "ммоль/л", binding: $HCO3)

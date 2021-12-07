@@ -12,7 +12,7 @@ struct EmergencyView: View {
                 GroupBox {
                     NumberFieldView(name: "Вес", hint: "кг", binding: $weight)
                         .focused($weightIsFocused)
-                    SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
+                    SegmentedFieldView(name: "Вид", segments: ["Кошка", "Собака"], binding: $species)
                 }
                 .groupBoxStyle(AppGroupBoxStyle())
                 .padding()
@@ -23,8 +23,7 @@ struct EmergencyView: View {
                 }
                 .hideKeyboardOnTap()
                 .listStyle(PlainListStyle())
-                .buttonStyle(PlainButtonStyle())
-                .padding(EdgeInsets(top: 0, leading: CGFloat(Grid.base), bottom: 0, trailing: CGFloat(Grid.base)))
+                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
             }
             .navigationTitle("Скорая помощь")
         }
@@ -51,10 +50,10 @@ private struct DrugView: View {
             Spacer()
             HStack(alignment: .top) {
                 VStack(alignment: .trailing) {
-                    Text(drug.getDosageFor(weight: weight, species: species))
+                    Text(drug.dosageFor(weight: weight, species: species))
                         .font(.title2)
                         .fontWeight(.medium)
-                    Text(drug.unit + " " + "(\(drug.administrationRoute))")
+                    Text(drug.unit + " " + "(\(drug.route))")
                         .font(.caption2)
                         .foregroundColor(.gray)
                 }

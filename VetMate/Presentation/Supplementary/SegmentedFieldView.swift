@@ -2,31 +2,32 @@ import SwiftUI
 
 struct SegmentedFieldView: View {
     @Binding var selected: Int
-    private let question: String
-    private let options: [String]
+    private let name: String
+    private let segments: [String]
     
     var body: some View {
         HStack(spacing: 40) {
-            QuestionTextView(question: question)
+            QuestionTextView(question: name)
             Picker(selection: $selected, label: Text(""), content: {
-                ForEach(0..<options.count) { index in
-                    Text(options[index]).tag(index)
+                ForEach(0..<segments.count) { index in
+                    Text(segments[index]).tag(index)
                 }
             })
-                .pickerStyle(.segmented)
+            .pickerStyle(.segmented)
+            .onAppear {
+                UISegmentedControl.appearance()
+                    .selectedSegmentTintColor = UIColor(Color._blue)
+                UISegmentedControl.appearance()
+                    .setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+                UISegmentedControl.appearance()
+                    .setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
+            }
         }
     }
     
-    init(question: String, options: [String], binding: Binding<Int>) {
-        self.question = question
-        self.options = options
+    init(name: String, segments: [String], binding: Binding<Int>) {
+        self.name = name
+        self.segments = segments
         self._selected = binding
-    }
-}
-
-struct SegmentedPickerQuestion_Previews: PreviewProvider {
-    @State static var species = 0
-    static var previews: some View {
-        SegmentedFieldView(question: "Вид", options: ["Кошка", "Собака"], binding: $species)
     }
 }

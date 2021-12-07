@@ -6,7 +6,6 @@ struct HintView: View {
     var body: some View {
         Text(text)
             .font(.subheadline)
-//            .fontWeight(.light)
             .foregroundColor(.gray)
             .multilineTextAlignment(.center)
     }

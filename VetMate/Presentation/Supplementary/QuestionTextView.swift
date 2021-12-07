@@ -10,9 +10,3 @@ struct QuestionTextView: View {
             .foregroundColor(._black)
     }
 }
-
-struct QuestionTextView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionTextView(question: "question")
-    }
-}

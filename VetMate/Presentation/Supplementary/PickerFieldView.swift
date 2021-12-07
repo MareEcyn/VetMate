@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct PickerFieldView: View {
-    @Binding var selected: Int
     private let name: String
     private let options: [String]
+    
+    @Binding var selected: Int
     
     var body: some View {
         HStack {

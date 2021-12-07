@@ -8,55 +8,54 @@ struct ScalesView: View {
     var body: some View {
         NavigationView {
             ZStack {
-            Group {
-                if viewModel.activeScale == nil {
-                    HintView("Выберите шкалу")
-                } else {
-                    List {
-                        ForEach(Array(viewModel.activeScale!.questions), id: \.text) { question in
-                            Section(header: SectionHeader(question.text)) {
-                                ForEach(Array(question.answers), id: \.text) { answer in
-                                    SectionAnswer(answer.text)
-                                        .listRowBackground(getRowColor(forRow: answer.index, inSection: question.index).0)
-                                        .foregroundColor(getRowColor(forRow: answer.index, inSection: question.index).1)
-                                        .onTapGesture {
-                                            viewModel.updateAnswers(withAnswer: answer.index, forQuestion: question.index)
-                                        }
+                Group {
+                    if viewModel.activeScale == nil {
+                        HintView("Выберите шкалу")
+                    } else {
+                        List {
+                            ForEach(Array(viewModel.activeScale!.questions), id: \.text) { question in
+                                Section(header: SectionHeader(question.text)) {
+                                    ForEach(Array(question.answers), id: \.text) { answer in
+                                        SectionAnswer(answer.text)
+                                            .listRowBackground(getRowColor(forRow: answer.index, inSection: question.index).0)
+                                            .foregroundColor(getRowColor(forRow: answer.index, inSection: question.index).1)
+                                            .onTapGesture {
+                                                viewModel.updateAnswers(withAnswer: answer.index, forQuestion: question.index)
+                                            }
+                                    }
                                 }
                             }
                         }
-                    }
-                    .listStyle(InsetGroupedListStyle())
-                    .refreshable {
-                        viewModel.selectedAnswers.removeAll()
+                        .listStyle(InsetGroupedListStyle())
+                        .refreshable {
+                            viewModel.currentAnswers.removeAll()
+                        }
                     }
                 }
-            }
-            .navigationBarTitle(viewModel.activeScale == nil ? "Шкалы" : viewModel.activeScale!.name, displayMode: .inline)
-            .navigationBarItems(trailing:
-                Button(action: { isScaleListDisplayed = true },
-                       label: {
-                            Image(systemName: "list.bullet.rectangle.fill")
-                                .foregroundColor(._blue)
-                })
-                .popover(isPresented: $isScaleListDisplayed,
-                         content: {
-                                ScalesListView(scalesList: viewModel.scales,
-                                               activeScale: $viewModel.activeScale,
-                                               selectedAnswers: $viewModel.selectedAnswers,
-                                               isScaleListDisplayed: $isScaleListDisplayed)
-                                }
-                        )
-            )
-                if viewModel.activeScale != nil && !viewModel.selectedAnswers.isEmpty {
+                .navigationBarTitle(viewModel.activeScale == nil ? "Шкалы" : viewModel.activeScale!.name, displayMode: .inline)
+                .navigationBarItems(trailing:
+                                        Button(action: { isScaleListDisplayed = true },
+                                               label: {
+                                                    Image(systemName: "list.bullet.rectangle.fill")
+                                                        .foregroundColor(._blue)
+                                        })
+                                        .popover(isPresented: $isScaleListDisplayed,
+                                                 content: {
+                                                    ScalesListView(scalesList: viewModel.scales,
+                                                                   activeScale: $viewModel.activeScale,
+                                                                   selectedAnswers: $viewModel.currentAnswers,
+                                                                   isScalesListDisplayed: $isScaleListDisplayed)
+                                                })
+                )
+                if viewModel.activeScale != nil && !viewModel.currentAnswers.isEmpty {
                     VStack {
                         Spacer()
                         if viewModel.activeScale!.name.contains("Шкала боли") {
-                            PainScaleToolbar(score: viewModel.getResult().value,
-                                             description: viewModel.getResult().description)
+                            PainScaleResultView(score: viewModel.getScaleResult().value,
+                                                description: viewModel.getScaleResult().description)
                         } else {
-                            ScalesToolbar(score: viewModel.getResult().value,
-                                          description: viewModel.getResult().description)
+                            ScalesResultView(score: viewModel.getScaleResult().value,
+                                             description: viewModel.getScaleResult().description)
                         }
                     }
                 }
@@ -67,13 +66,13 @@ struct ScalesView: View {
 
 extension ScalesView {
     
-    /// Allow use of separate colors for selected and unselected rows.
+    /// Return different colors for selected and unselected row state.
     /// - Parameters:
-    ///   - row: index of row
-    ///   - section: index of row's section
+    ///   - forRow: index of a row
+    ///   - inSection: index of a row's section
     /// - Returns: Tuple represented background and foreground colors for specified row
     private func getRowColor(forRow row: Int, inSection section: Int) -> (Color, Color) {
-        if viewModel.selectedAnswers[section] == row {
+        if viewModel.currentAnswers[section] == row {
             return (._blue, .white)
         }
         return (.white, .black)
@@ -111,7 +110,7 @@ struct SectionAnswer: View {
     }
 }
 
-struct ScalesToolbar: View {
+struct ScalesResultView: View {
     let score: String
     let description: String
     
@@ -132,10 +131,8 @@ struct ScalesToolbar: View {
     }
 }
 
-struct PainScaleToolbar: View {
-    let score: String
-    let description: String
-    var backgroundColor: Color {
+struct PainScaleResultView: View {
+    private var backgroundColor: Color {
         var color = Color.black
         switch Int(score)! {
         case 10...12:
@@ -154,12 +151,15 @@ struct PainScaleToolbar: View {
         return color
     }
     
+    let score: String
+    let description: String
+    
     var body: some View {
         HStack(alignment: .top) {
             Button(action: {  },
                    label: {
-                        Image(systemName: "eye.square.fill")
-                            .foregroundColor(.white)
+                Image(systemName: "eye.square.fill")
+                    .foregroundColor(.white)
             })
             Spacer()
             VStack(alignment: .trailing) {

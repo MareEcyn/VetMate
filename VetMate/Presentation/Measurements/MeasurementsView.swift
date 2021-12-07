@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MeasurementsView: View {
     @State private var tappableFieldColor = Color.white
-    @State private var activeSegment = 1
+    @State private var currentVolumeIndex = 1
     @ObservedObject var model: MeasurementsModel
     
     var body: some View {
@@ -12,10 +12,7 @@ struct MeasurementsView: View {
                     HintView("Касайтесь экрана при каждой капле")
                         .padding(40)
                 } else {
-                    Text("\(model.resultVolume) мл")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .padding()
+                    MeasurementsResultView(text: String(model.resultVolume))
                         .foregroundColor(model.isStabilized ? ._green : ._black)
                     Spacer()
                 }
@@ -23,17 +20,17 @@ struct MeasurementsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    DropVolumeView(options: ["20 в мл", "60 в мл"], binding: $activeSegment)
+                    SegmentedFieldView(name: "", segments: ["20 в мл", "60 в мл"], binding: $currentVolumeIndex)
                         .padding()
-                        .onChange(of: activeSegment) { _ in
+                        .onChange(of: currentVolumeIndex) { _ in
                             model.resetCounter()
                         }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { model.resetCounter() },
                            label: {
-                                Image(systemName: "arrow.counterclockwise")
-                                    .foregroundColor(._blue)
+                        Image(systemName: "arrow.counterclockwise")
+                            .foregroundColor(._blue)
                     })
                 }
             }
@@ -42,14 +39,27 @@ struct MeasurementsView: View {
             .onTapGesture {
                 withAnimation(.easeInOut(duration: 0.15)) {
                     tappableFieldColor = ._blue
-                                }
+                }
                 withAnimation(.easeInOut(duration: 0.3)) {
                     tappableFieldColor = .white
-                                }
-                let volume = activeSegment == 0 ? 20 : 60
-                model.addDrop(withVolume: volume)
+                }
+                let volume = currentVolumeIndex == 0 ? 20 : 60
+                model.addDrop(quantity: volume)
             }
         }
+    }
+}
+
+// MARK: - Embedded views
+
+struct MeasurementsResultView: View {
+    let text: String
+    
+    var body: some View {
+        Text("\(text) мл")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .padding()
     }
 }
 
@@ -58,32 +68,5 @@ struct MeasurementsView: View {
 struct MeasurementsView_Previews: PreviewProvider {
     static var previews: some View {
         MeasurementsView(model: MeasurementsModel())
-    }
-}
-
-// MARK: - Embedded views
-
-struct DropVolumeView: View {
-    @Binding var selected: Int
-    private let options: [String]
-    
-    var body: some View {
-        Picker(selection: $selected, label: Text(""), content: {
-            ForEach(0..<options.count) { index in
-                Text(options[index]).tag(index)
-            }
-        })
-        .pickerStyle(.segmented)
-    }
-    
-    init(options: [String], binding: Binding<Int>) {
-        self.options = options
-        self._selected = binding
-        UISegmentedControl.appearance()
-            .selectedSegmentTintColor = UIColor(Color._blue)
-        UISegmentedControl.appearance()
-            .setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance()
-            .setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
     }
 }

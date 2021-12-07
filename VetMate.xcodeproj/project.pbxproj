@@ -15,7 +15,6 @@
 		E617889326D3AA67008A5987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E617889226D3AA67008A5987 /* Assets.xcassets */; };
 		E617889626D3AA67008A5987 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E617889526D3AA67008A5987 /* Preview Assets.xcassets */; };
 		E669DBD3273A59D600CF2132 /* CalculatorsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669DBD2273A59D600CF2132 /* CalculatorsListView.swift */; };
-		E669DBD6273B864B00CF2132 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669DBD5273B864B00CF2132 /* Grid.swift */; };
 		E669DBD8273B8F6E00CF2132 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669DBD7273B8F6E00CF2132 /* View+Ext.swift */; };
 		E669DBDA273B951B00CF2132 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E669DBD9273B951B00CF2132 /* Launch Screen.storyboard */; };
 		E67627D526DDE26300179D79 /* Scale+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67627D426DDE26300179D79 /* Scale+Realm.swift */; };
@@ -50,7 +49,6 @@
 		E617889526D3AA67008A5987 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E617889726D3AA67008A5987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E669DBD2273A59D600CF2132 /* CalculatorsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorsListView.swift; sourceTree = "<group>"; };
-		E669DBD5273B864B00CF2132 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		E669DBD7273B8F6E00CF2132 /* View+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		E669DBD9273B951B00CF2132 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E67627D426DDE26300179D79 /* Scale+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale+Realm.swift"; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 		E617889F26D3B4C2008A5987 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				E669DBD4273B863000CF2132 /* Support */,
 				E617889026D3AA4D008A5987 /* InitialView.swift */,
 				E6E3D0FC26E080F2001EAF43 /* Measurements */,
 				E6E3D0FB26E080E7001EAF43 /* Calculators */,
@@ -180,14 +177,6 @@
 				E609B22126DCEBA300DA398E /* Scales */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		E669DBD4273B863000CF2132 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				E669DBD5273B864B00CF2132 /* Grid.swift */,
-			);
-			path = Support;
 			sourceTree = "<group>";
 		};
 		E69D1B9F26D4EE520004A91E /* Supplementary */ = {
@@ -384,7 +373,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E669DBD6273B864B00CF2132 /* Grid.swift in Sources */,
 				E6EA2B8126E0B52700795DDC /* HintView.swift in Sources */,
 				E6A609F5274E30DD00FA78A7 /* MeasurementsModel.swift in Sources */,
 				E69D1B8226D3E5540004A91E /* Calculators.swift in Sources */,
