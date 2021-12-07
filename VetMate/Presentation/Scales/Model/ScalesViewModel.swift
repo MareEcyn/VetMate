@@ -64,11 +64,11 @@ extension ScalesViewModel {
         case "Шкала комы":
             switch score {
             case 15...18:
-                description = "низкая вероятность"
+                description = "Хороший прогноз"
             case 9...14:
-                description = "умеренная вероятность"
+                description = "Осторожный прогноз"
             case 1...8:
-                description = "высокая вероятность"
+                description = "Неблагоприятный прогноз"
             default:
                 description = "n/a"
             }
