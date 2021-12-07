@@ -187,7 +187,10 @@ struct EmergencyModel {
                       formula: { (w, _) in (w, nil) }), // Weight of NaHCO3 = 84; prev formula - NaHCO3_weight*weight/84
     ]
     
-    subscript(index: Int) -> EmergencyDrug { drugs[index] }
+    subscript(index: Int) -> EmergencyDrug {
+        let sortedDrugs = drugs.sorted(by: {$0.name < $1.name})
+        return sortedDrugs[index]
+    }
 }
 
 struct EmergencyDrug {
