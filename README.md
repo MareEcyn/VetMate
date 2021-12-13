@@ -1,3 +1,5 @@
+**Currently project frozen for the time of requirements clarification.**
+
 # VetMate
 
 VetMate is a toolkit for veterinarians for facilitate routine calculations.
